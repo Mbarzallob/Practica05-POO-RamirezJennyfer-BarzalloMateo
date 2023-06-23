@@ -63,31 +63,43 @@ public class ControladorCantante {
         return cantanteDAO.findAll();
     }
 
-    public void ingresarDisco(Cantante cantante, Disco disco) {
+    public void ingresarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
-        this.cantante.agregarDisco(disco);
+        cantanteDAO.createDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
         cantanteDAO.update(this.cantante);
     }
 
     public Disco buscarDisco(Cantante cantante, int codigo) {
         this.cantante = cantante;
-        return this.cantante.buscarDisco(codigo);
+        return cantanteDAO.readDisco(this.cantante, codigo);
     }
 
-    public void eliminarDisco(Cantante cantante, Disco disco) {
+    public boolean eliminarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
-        this.cantante.eliminarDisco(disco);
-        cantanteDAO.update(this.cantante);
+        Disco disco = this.buscarDisco(this.cantante, codigo);
+        if (disco != null) {
+            cantanteDAO.deleteDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
+            cantanteDAO.update(this.cantante);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void actualizarDisco(Cantante cantante, Disco disco) {
+    public boolean actualizarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
-        this.cantante.actualizarDisco(disco);
-        cantanteDAO.update(this.cantante);
+        Disco disco = this.buscarDisco(cantante, codigo);
+        if (disco != null) {
+            cantanteDAO.updateDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
+            cantanteDAO.update(this.cantante);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public List<Disco> listarDiscos(Cantante cantante) {
         this.cantante = cantante;
-        return this.cantante.listarDiscos();
+        return cantanteDAO.findAllDisco(this.cantante);
     }
 }

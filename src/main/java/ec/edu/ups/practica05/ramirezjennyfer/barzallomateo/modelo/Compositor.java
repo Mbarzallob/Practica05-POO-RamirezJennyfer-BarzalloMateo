@@ -67,36 +67,40 @@ public class Compositor extends Persona {
     }
 
     // Metodo el cual agrega una cancion en la clase Compositor
-    public void agregarCancion(Cancion cancion) {
-        
+    public void agregarCancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
         cancionesTop100Bilboard.add(cancion);
     }
 
-    public void actualizarCancion(Cancion cancion){
-        if(cancionesTop100Bilboard.contains(cancion)){
+    public void actualizarCancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
+        if (cancionesTop100Bilboard.contains(cancion)) {
             int index = cancionesTop100Bilboard.indexOf(cancion);
             cancionesTop100Bilboard.set(index, cancion);
         }
     }
-    
-    public void eliminarCancion(Cancion cancion){
-        if(cancionesTop100Bilboard.contains(cancion)){
+
+    public void eliminarCancion(int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        Cancion cancion = new Cancion(codigo, titulo, letra, tiempoEnMinutos);
+        if (cancionesTop100Bilboard.contains(cancion)) {
             int index = cancionesTop100Bilboard.indexOf(cancion);
             cancionesTop100Bilboard.remove(index);
         }
     }
-    public List<Cancion> listarCanciones(){
+
+    public List<Cancion> listarCanciones() {
         return cancionesTop100Bilboard;
     }
-    
-    public Cancion buscarCancion(int codigo){
-        for(Cancion cancion: cancionesTop100Bilboard){
-            if(cancion.getCodigo()==codigo){
+
+    public Cancion buscarCancion(int codigo) {
+        for (Cancion cancion : cancionesTop100Bilboard) {
+            if (cancion.getCodigo() == codigo) {
                 return cancion;
             }
         }
         return null;
     }
+
     // Metodo el cual agrega un cantante en la clase Compositor
     public void agregarCliente(Cantante cliente) {
         clientes.add(cliente);
@@ -116,11 +120,11 @@ public class Compositor extends Persona {
         }
     }
 
-    public List<Cantante> listar() {
+    public List<Cantante> listarCantantes() {
         return clientes;
     }
 
-    public Cantante buscar(int codigo) {
+    public Cantante buscarCantante(int codigo) {
 
         for (Cantante cantante : clientes) {
             if (cantante.getCodigo() == codigo) {
@@ -131,8 +135,6 @@ public class Compositor extends Persona {
         return null;
     }
 
-    
-    
     // Sobrecarga del metodo calcularSalario de la clase padre Persona 
     @Override
     public double calcularSalario() {
@@ -153,6 +155,6 @@ public class Compositor extends Persona {
     // Metodo To String 
     @Override
     public String toString() {
-        return "Compositor{" +super.toString()+ "numeroDeComposiciones=" + numeroDeComposiciones + ", /ncancionesTop100Bilboard=" + cancionesTop100Bilboard + ", \nclientes=" + clientes + '}';
+        return "Compositor{" + super.toString() + "numeroDeComposiciones=" + numeroDeComposiciones + ", /ncancionesTop100Bilboard=" + cancionesTop100Bilboard + ", \nclientes=" + clientes + '}';
     }
 }

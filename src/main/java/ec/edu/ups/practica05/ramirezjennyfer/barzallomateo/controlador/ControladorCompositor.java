@@ -89,35 +89,59 @@ public class ControladorCompositor {
     public List<Cantante> listarCantantes(Compositor compositor) {
 
         this.compositor = compositor;
-        return this.compositor.listar();
+        return this.compositor.listarCantantes();
+    }
+
+    public void actualizarCliente(Compositor compositor, Cantante cantanteAnterior, Cantante cantanteNuevo) {
+        this.compositor = compositor;
+        this.eliminarCliente(this.compositor, cantanteAnterior);
+        this.agregarCliente(this.compositor, cantanteNuevo);
+    }
+
+    public Cantante buscarCantante(Compositor compositor, int codigo) {
+        this.compositor = compositor;
+        return this.compositor.buscarCantante(codigo);
     }
 
     //metodos para canciones
-    public void agregarCancion(Cancion cancion, Compositor compositor) {
+    public void agregarCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
         this.compositor = compositor;
-        this.compositor.agregarCancion(cancion);
+        compositorDAO.createCancion(this.compositor, codigo, titulo, letra, tiempoEnMinutos);
         compositorDAO.update(this.compositor);
     }
 
     public Cancion buscarCancion(Compositor compositor, int codigo) {
         this.compositor = compositor;
-        return this.compositor.buscarCancion(codigo);
+        return compositorDAO.readCancion(this.compositor, codigo);
     }
 
-    public void eliminarCancion(Compositor compositor, Cancion cancion) {
+    public boolean eliminarCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
         this.compositor = compositor;
-        this.compositor.eliminarCancion(cancion);
-        compositorDAO.update(this.compositor);
+        Cancion cancion = this.buscarCancion(this.compositor, codigo);
+        if (cancion != null) {
+            compositorDAO.deleteCancion(this.compositor, codigo, titulo, letra, tiempoEnMinutos);
+            compositorDAO.update(this.compositor);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
-    public void actualizarCancion(Compositor compositor, Cancion cancion) {
+    public boolean actualizarCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
         this.compositor = compositor;
-        this.compositor.actualizarCancion(cancion);
-        compositorDAO.update(this.compositor);
+        Cancion cancion = this.buscarCancion(compositor, codigo);
+        if (cancion != null) {
+            compositorDAO.updateCancion(this.compositor, codigo, titulo, letra, tiempoEnMinutos);
+            compositorDAO.update(this.compositor);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public List<Cancion> listarCanciones(Compositor compositor) {
         this.compositor = compositor;
-        return this.compositor.listarCanciones();
+        return compositorDAO.findAllCanciones(this.compositor);
     }
 }

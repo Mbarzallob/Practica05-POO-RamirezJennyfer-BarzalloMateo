@@ -93,4 +93,30 @@ public class CantanteDAO implements ICantanteDAO {
 
     }
 
+    @Override
+    public void createDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
+        cantante.agregarDisco(codigo,nombre,anioDeLanzamiento);
+    }
+
+    @Override
+    public Disco readDisco(Cantante cantante, int codigo) {
+        return cantante.buscarDisco(codigo);
+    }
+
+    @Override
+    public void updateDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
+        cantante.actualizarDisco(codigo, nombre, anioDeLanzamiento);
+    }
+
+    @Override
+    public void deleteDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
+        cantante.eliminarDisco(codigo, nombre, anioDeLanzamiento);
+    }
+
+    @Override
+    public List<Disco> findAllDisco(Cantante cantante) {
+        return cantante.listarDiscos();
+    }
+
+
 }

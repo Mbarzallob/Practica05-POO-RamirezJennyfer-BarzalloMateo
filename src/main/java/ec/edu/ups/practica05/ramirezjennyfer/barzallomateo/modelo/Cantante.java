@@ -3,15 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 /**
-         *
+ *
  * @author casa
  */
-
-public class Cantante extends Persona{
+public class Cantante extends Persona {
 
     // Atributos normales de la clase Cantante
     private String nombreArtistico;
@@ -42,41 +42,46 @@ public class Cantante extends Persona{
     public String getNombreArtistico() {
         return nombreArtistico;
     }
+
     public void setNombreArtistico(String nombreArtistico) {
         this.nombreArtistico = nombreArtistico;
     }
+
     // Getter y setter del Atributo generoMusical
     public String getGeneroMusical() {
         return generoMusical;
     }
+
     public void setGeneroMusical(String generoMusical) {
         this.generoMusical = generoMusical;
     }
+
     // Getter y setter del Atributo numeroDeSencillos
     public int getNumeroDeSencillos() {
         return numeroDeSencillos;
     }
+
     public void setNumeroDeSencillos(int numeroDeSencillos) {
         this.numeroDeSencillos = numeroDeSencillos;
     }
+
     // Getter y setter del Atributo numeroDeConciertos
     public int getNumeroDeConciertos() {
         return numeroDeConciertos;
     }
+
     public void setNumeroDeConciertos(int numeroDeConciertos) {
         this.numeroDeConciertos = numeroDeConciertos;
     }
+
     // Getter y setter del Atributo numeroDeGiras
     public int getNumeroDeGiras() {
         return numeroDeGiras;
     }
+
     public void setNumeroDeGiras(int numeroDeGiras) {
         this.numeroDeGiras = numeroDeGiras;
     }
-    
-    
-    
-
 
     // Metodo hashCode: Metodo que compara los objetos pasados devolviendo un numero entero 
     @Override
@@ -85,7 +90,6 @@ public class Cantante extends Persona{
         hash = 97 * hash + super.getCodigo();
         return hash;
     }
-
 
     // Metodo equals: Metodo que permite comparar si los objetos son del mismo tipo
     @Override
@@ -103,57 +107,60 @@ public class Cantante extends Persona{
         return true;
     }
 
-
     // Metodo el cual agrega un disco en la clase Cantante
-    public void agregarDisco(Disco disco){
-        discografia.add(disco);
+    public void agregarDisco(int codigo, String nombre, int anioDeLanzamiento) {
+        discografia.add(new Disco(codigo, nombre, anioDeLanzamiento));
     }
-    
-    public void actualizarDisco(Disco disco){
-        if(discografia.contains(disco)){
+
+    public void actualizarDisco(int codigo, String nombre, int anioDeLanzamiento) {
+        Disco disco = new Disco(codigo, nombre, anioDeLanzamiento);
+        if (discografia.contains(disco)) {
             int index = discografia.indexOf(disco);
             discografia.set(index, disco);
         }
     }
-            
-public void eliminarDisco(Disco disco){
-    if(discografia.contains(disco)){
-        int index = discografia.indexOf(disco);
-        discografia.remove(index);
+
+    public void eliminarDisco(int codigo, String nombre, int anioDeLanzamiento) {
+        Disco disco = new Disco(codigo, nombre, anioDeLanzamiento);
+        if (discografia.contains(disco)) {
+            int index = discografia.indexOf(disco);
+            discografia.remove(index);
+        }
     }
-}
+
     public List<Disco> listarDiscos() {
         return discografia;
     }
-public Disco buscarDisco(int codigo){
-    for(Disco disco: discografia){
-        if(disco.getCodigo()==codigo){
-            return disco;
+
+    public Disco buscarDisco(int codigo) {
+        for (Disco disco : discografia) {
+            if (disco.getCodigo() == codigo) {
+                return disco;
+            }
         }
+        return null;
     }
-    return null;
-}
-    
+
     // Metodo calcularSalario valor extra 
     @Override
     public double calcularSalario() {
-        double salario =super.getSalario();
+        double salario = super.getSalario();
         double pagoExtra = 0;
-        if(numeroDeSencillos >= 1 && numeroDeSencillos <= 10){
+        if (numeroDeSencillos >= 1 && numeroDeSencillos <= 10) {
             pagoExtra = (salario * 5.0) / 100.0;
-        } else if(numeroDeGiras >= 1 && numeroDeGiras <= 3){
+        } else if (numeroDeGiras >= 1 && numeroDeGiras <= 3) {
             pagoExtra = (salario * 3.0) / 100.0;
-        } else if(numeroDeSencillos > 10 && numeroDeGiras >3 ){
+        } else if (numeroDeSencillos > 10 && numeroDeGiras > 3) {
             pagoExtra = 1000;
-        } else if(discografia.size() >= 5){
+        } else if (discografia.size() >= 5) {
             pagoExtra = 2000;
         }
-        return(salario + pagoExtra); 
+        return (salario + pagoExtra);
     }
-    
+
     // Metodo To String
     @Override
     public String toString() {
-        return "Cantante{" +super.toString()+ "nombreArtistico=" + nombreArtistico + ", generoMusical=" + generoMusical + ", numeroDeSencillos=" + numeroDeSencillos + ", numeroDeConciertos=" + numeroDeConciertos + ", numeroDeGiras=" + numeroDeGiras + ", /ndiscografia=" + discografia + '}';
+        return "Cantante{" + super.toString() + "nombreArtistico=" + nombreArtistico + ", generoMusical=" + generoMusical + ", numeroDeSencillos=" + numeroDeSencillos + ", numeroDeConciertos=" + numeroDeConciertos + ", numeroDeGiras=" + numeroDeGiras + ", /ndiscografia=" + discografia + '}';
     }
 }

@@ -91,4 +91,29 @@ public class CompositorDAO implements ICompositorDAO {
         return null;
     }
 
+    @Override
+    public void createCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        compositor.agregarCancion(codigo, titulo, letra, tiempoEnMinutos);
+    }
+
+    @Override
+    public Cancion readCancion(Compositor compositor, int codigo) {
+        return compositor.buscarCancion(codigo);
+    }
+
+    @Override
+    public void updateCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
+        compositor.actualizarCancion(codigo, titulo, letra, tiempoEnMinutos);
+    }
+
+    @Override
+    public void deleteCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
+       compositor.eliminarCancion(codigo, titulo, letra, tiempoEnMinutos);
+    }
+
+    @Override
+    public List<Cancion> findAllCanciones(Compositor compositor) {
+        return compositor.listarCanciones();
+    }
+
 }

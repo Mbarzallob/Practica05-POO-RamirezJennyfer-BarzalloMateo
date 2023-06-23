@@ -4,6 +4,7 @@
  */
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.idao;
 
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cancion;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Compositor;
 import java.util.List;
 
@@ -18,4 +19,10 @@ public interface ICompositorDAO {
     public void delete(Compositor compositor);
     public List<Compositor> findAll();
     public Compositor buscarPorCancion(String nombre);
+    
+    public void createCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos);
+    public Cancion readCancion(Compositor compositor, int codigo);
+    public void updateCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos);
+    public void deleteCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos);
+    public List<Cancion> findAllCanciones(Compositor compositor);
 }
