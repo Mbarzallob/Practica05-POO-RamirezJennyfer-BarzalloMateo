@@ -1,20 +1,27 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista;
+package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.nuevo;
+
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author SOPORTETICS
  */
-public class VentanaRegistrarCantante extends javax.swing.JFrame {
+public class VentanaCrearCantante extends javax.swing.JInternalFrame {
+
+    private ControladorCantante controladorCantante;
 
     /**
-     * Creates new form VentanaRegistrarCantante
+     * Creates new form VentanaCrearCantante
      */
-    public VentanaRegistrarCantante() {
+    public VentanaCrearCantante(ControladorCantante controladorCantante) {
         initComponents();
+        this.controladorCantante = controladorCantante;
     }
 
     /**
@@ -50,11 +57,8 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
         txtNumSencillos = new javax.swing.JTextField();
         txtNumConciertos = new javax.swing.JTextField();
         txtNumGiras = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnRegistrarCantante = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Registrar datos de un cantante");
 
@@ -80,11 +84,19 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
 
         jLabel12.setText("Numero de giras");
 
-        jButton1.setText("Registrar");
-
-        jButton2.setText("Cancelar");
+        btnRegistrarCantante.setText("Registrar");
+        btnRegistrarCantante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarCantanteActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Menu");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -93,7 +105,8 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
+                        .addComponent(jButton3)
+                        .addGap(34, 34, 34)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -112,32 +125,29 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel12))
                                 .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                    .addComponent(txtNombre)
-                                    .addComponent(txtApellido)
-                                    .addComponent(txtEdad)
-                                    .addComponent(txtNacionalidad)
-                                    .addComponent(txtSalario)
-                                    .addComponent(txtNombreArtistico)
-                                    .addComponent(txtGeneroMusical)
-                                    .addComponent(txtNumSencillos)
-                                    .addComponent(txtNumConciertos)
-                                    .addComponent(txtNumGiras)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addComponent(jButton3))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnRegistrarCantante)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                        .addComponent(txtNombre)
+                                        .addComponent(txtApellido)
+                                        .addComponent(txtEdad)
+                                        .addComponent(txtNacionalidad)
+                                        .addComponent(txtSalario)
+                                        .addComponent(txtNombreArtistico)
+                                        .addComponent(txtGeneroMusical)
+                                        .addComponent(txtNumSencillos)
+                                        .addComponent(txtNumConciertos)
+                                        .addComponent(txtNumGiras)))))))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -182,11 +192,9 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtNumGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnRegistrarCantante)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,44 +216,64 @@ public class VentanaRegistrarCantante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnRegistrarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCantanteActionPerformed
+        if (camposObligatorios()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            int edad = Integer.parseInt(txtEdad.getText());
+            String nacionalidad = txtNacionalidad.getText();
+            double salario = Double.parseDouble(txtSalario.getText());
+            String nombreArtistico = txtNombreArtistico.getText();
+            String generoMusical = txtGeneroMusical.getText();
+            int numeroSencillos = Integer.parseInt(txtNumSencillos.getText());
+            int numeroConciertos = Integer.parseInt(txtNumConciertos.getText());
+            int numeroGiras = Integer.parseInt(txtNumGiras.getText());
+            Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
+            controladorCantante.agregarCantante(cantante);
+            JOptionPane.showMessageDialog(this, "Registro del cantante" + cantante.getNombreArtistico());
+        } else {
+            JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR ");
         }
-        //</editor-fold>
+    }//GEN-LAST:event_btnRegistrarCantanteActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaRegistrarCantante().setVisible(true);
-            }
-        });
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private boolean camposObligatorios() {
+        if (txtCodigo.getText().isEmpty()
+                || txtApellido.getText().isEmpty()
+                || txtNombre.getText().isEmpty()
+                || txtEdad.getText().isEmpty()
+                || txtSalario.getText().isEmpty()
+                || txtNacionalidad.getText().isEmpty()
+                || txtNombreArtistico.getText().isEmpty()
+                || txtGeneroMusical.getText().isEmpty()
+                || txtNumSencillos.getText().isEmpty()
+                || txtNumConciertos.getText().isEmpty()
+                || txtNumGiras.getText().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
+    private void limpiarCampos() {
+        txtCodigo.setText("");
+        txtApellido.setText("");
+        txtEdad.setText("");
+        txtGeneroMusical.setText("");
+        txtNacionalidad.setText("");
+        txtNombre.setText("");
+        txtNombreArtistico.setText("");
+        txtNumConciertos.setText("");
+        txtNumGiras.setText("");
+        txtNumSencillos.setText("");
+        txtSalario.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnRegistrarCantante;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

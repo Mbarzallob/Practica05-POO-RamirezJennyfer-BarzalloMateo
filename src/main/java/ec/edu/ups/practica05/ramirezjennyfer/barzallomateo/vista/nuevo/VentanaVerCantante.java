@@ -1,19 +1,19 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista;
+package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.nuevo;
 
 /**
  *
  * @author SOPORTETICS
  */
-public class VentanaActualizarCantante extends javax.swing.JFrame {
+public class VentanaVerCantante extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VentanaActualizarCantante
+     * Creates new form VentanaVerPersona
      */
-    public VentanaActualizarCantante() {
+    public VentanaVerCantante() {
         initComponents();
     }
 
@@ -51,11 +51,11 @@ public class VentanaActualizarCantante extends javax.swing.JFrame {
         txtNumConciertos = new javax.swing.JTextField();
         txtNumGiras = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        cbxDiscos = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Actualizar cantante");
+        jLabel1.setText("Datos del cantante");
 
         jLabel2.setText("Codigo");
 
@@ -101,7 +101,11 @@ public class VentanaActualizarCantante extends javax.swing.JFrame {
 
         jButton3.setText("Menu");
 
-        jButton1.setText("Actualizar");
+        cbxDiscos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel13.setText("Discografia");
+
+        jButton1.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,22 +133,25 @@ public class VentanaActualizarCantante extends javax.swing.JFrame {
                                     .addComponent(jLabel12)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jButton3)
-                                        .addComponent(jLabel8)))
+                                        .addComponent(jLabel8))
+                                    .addComponent(jLabel13))
                                 .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                        .addComponent(txtNombre)
-                                        .addComponent(txtApellido)
-                                        .addComponent(txtEdad)
-                                        .addComponent(txtNacionalidad)
-                                        .addComponent(txtSalario)
-                                        .addComponent(txtNombreArtistico)
-                                        .addComponent(txtGeneroMusical)
-                                        .addComponent(txtNumSencillos)
-                                        .addComponent(txtNumConciertos)
-                                        .addComponent(txtNumGiras)))))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cbxDiscos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtApellido)
+                                    .addComponent(txtEdad)
+                                    .addComponent(txtNacionalidad)
+                                    .addComponent(txtSalario)
+                                    .addComponent(txtNombreArtistico)
+                                    .addComponent(txtGeneroMusical)
+                                    .addComponent(txtNumSencillos)
+                                    .addComponent(txtNumConciertos)
+                                    .addComponent(txtNumGiras)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(jButton1)))
                 .addContainerGap(148, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,8 +206,12 @@ public class VentanaActualizarCantante extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtNumGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxDiscos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,48 +231,16 @@ public class VentanaActualizarCantante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaActualizarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaActualizarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaActualizarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaActualizarCantante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VentanaActualizarCantante().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxDiscos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
