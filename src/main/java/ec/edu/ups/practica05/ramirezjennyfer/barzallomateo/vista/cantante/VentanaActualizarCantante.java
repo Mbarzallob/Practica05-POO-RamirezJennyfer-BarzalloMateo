@@ -2,24 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.nuevo;
+package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author SOPORTETICS
  */
-public class VentanaCrearCantante extends javax.swing.JInternalFrame {
+public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
+    private List<Disco> aux;
 
     /**
-     * Creates new form VentanaCrearCantante
+     * Creates new form VentanaActualizarCantante
      */
-    public VentanaCrearCantante(ControladorCantante controladorCantante) {
+    public VentanaActualizarCantante(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
     }
@@ -57,10 +60,34 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         txtNumSencillos = new javax.swing.JTextField();
         txtNumConciertos = new javax.swing.JTextField();
         txtNumGiras = new javax.swing.JTextField();
-        btnRegistrarCantante = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnActualizarCantante = new javax.swing.JButton();
+        btnBuscarCantante = new javax.swing.JButton();
 
-        jLabel1.setText("Registrar datos de un cantante");
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
+
+        jLabel1.setText("Actualizar cantante");
 
         jLabel2.setText("Codigo");
 
@@ -84,17 +111,44 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Numero de giras");
 
-        btnRegistrarCantante.setText("Registrar");
-        btnRegistrarCantante.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.setEnabled(false);
+
+        txtApellido.setEnabled(false);
+
+        txtEdad.setEnabled(false);
+
+        txtNacionalidad.setEnabled(false);
+
+        txtSalario.setEnabled(false);
+
+        txtNombreArtistico.setEnabled(false);
+
+        txtGeneroMusical.setEnabled(false);
+
+        txtNumSencillos.setEnabled(false);
+
+        txtNumConciertos.setEnabled(false);
+
+        txtNumGiras.setEnabled(false);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarCantanteActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Menu");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarCantante.setText("Actualizar");
+        btnActualizarCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnActualizarCantanteActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCantante.setText("Buscar cantante a actualizar");
+        btnBuscarCantante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCantanteActionPerformed(evt);
             }
         });
 
@@ -105,8 +159,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(34, 34, 34)
+                        .addGap(184, 184, 184)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -119,39 +172,45 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel12)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnSalir)
+                                        .addComponent(jLabel8)))
                                 .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnRegistrarCantante)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                        .addComponent(txtNombre)
-                                        .addComponent(txtApellido)
-                                        .addComponent(txtEdad)
-                                        .addComponent(txtNacionalidad)
-                                        .addComponent(txtSalario)
-                                        .addComponent(txtNombreArtistico)
-                                        .addComponent(txtGeneroMusical)
-                                        .addComponent(txtNumSencillos)
-                                        .addComponent(txtNumConciertos)
-                                        .addComponent(txtNumGiras)))))))
-                .addContainerGap(148, Short.MAX_VALUE))
+                                    .addComponent(btnActualizarCantante)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                            .addComponent(txtNombre)
+                                            .addComponent(txtApellido)
+                                            .addComponent(txtEdad)
+                                            .addComponent(txtNacionalidad)
+                                            .addComponent(txtSalario)
+                                            .addComponent(txtNombreArtistico)
+                                            .addComponent(txtGeneroMusical)
+                                            .addComponent(txtNumSencillos)
+                                            .addComponent(txtNumConciertos)
+                                            .addComponent(txtNumGiras))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnBuscarCantante)))))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton3))
+                    .addComponent(btnSalir))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarCantante))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -193,8 +252,8 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
                     .addComponent(jLabel12)
                     .addComponent(txtNumGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnRegistrarCantante)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(btnActualizarCantante)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,15 +267,18 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCantanteActionPerformed
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        limpiarCampos();
+        cambiarEstado(false);
+    }//GEN-LAST:event_formInternalFrameClosing
+
+    private void btnActualizarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCantanteActionPerformed
         if (camposObligatorios()) {
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -230,16 +292,75 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
             int numeroConciertos = Integer.parseInt(txtNumConciertos.getText());
             int numeroGiras = Integer.parseInt(txtNumGiras.getText());
             Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
-            controladorCantante.agregarCantante(cantante);
-            JOptionPane.showMessageDialog(this, "Registro del cantante" + cantante.getNombreArtistico());
+            for (Disco disco : aux) {
+                cantante.agregarDisco(disco.getCodigo(), disco.getNombre(), disco.getAnioDeLanzamiento());
+            }
+            if (controladorCantante.actualizarCantante(cantante)) {
+
+                JOptionPane.showMessageDialog(this, "El cantante ha sido actualizado exitosamente! :)");
+                this.limpiarCampos();
+                this.cambiarEstado(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante ha sido actualizado exitosamente! :)");
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR ");
+            JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
         }
-    }//GEN-LAST:event_btnRegistrarCantanteActionPerformed
+    }//GEN-LAST:event_btnActualizarCantanteActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCantanteActionPerformed
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        Cantante cantante = controladorCantante.buscarCantante(codigo);
+        if (cantante != null) {
+            txtApellido.setText(cantante.getApellido());
+            txtEdad.setText(String.valueOf(cantante.getEdad()));
+            txtGeneroMusical.setText(cantante.getGeneroMusical());
+            txtNacionalidad.setText(cantante.getNacionalidad());
+            txtNombre.setText(cantante.getNombre());
+            txtNombreArtistico.setText(cantante.getNombreArtistico());
+            txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
+            txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
+            txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
+            txtSalario.setText(String.valueOf(cantante.getSalario()));
+            cambiarEstado(true);
+            aux = cantante.listarDiscos();
+        } else {
+            JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
+            limpiarCampos();
+        }
+    }//GEN-LAST:event_btnBuscarCantanteActionPerformed
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.setVisible(false);
+        limpiarCampos();
+    }//GEN-LAST:event_btnSalirActionPerformed
+    private void limpiarCampos() {
+        txtCodigo.setText("");
+        txtApellido.setText("");
+        txtEdad.setText("");
+        txtGeneroMusical.setText("");
+        txtNacionalidad.setText("");
+        txtNombre.setText("");
+        txtNombreArtistico.setText("");
+        txtNumConciertos.setText("");
+        txtNumGiras.setText("");
+        txtNumSencillos.setText("");
+        txtSalario.setText("");
+    }
+
+    private void cambiarEstado(boolean ena) {
+        txtCodigo.setEnabled(!ena);
+        txtApellido.setEnabled(ena);
+        txtEdad.setEnabled(ena);
+        txtGeneroMusical.setEnabled(ena);
+        txtNacionalidad.setEnabled(ena);
+        txtNombre.setEnabled(ena);
+        txtNombreArtistico.setEnabled(ena);
+        txtNumConciertos.setEnabled(ena);
+        txtNumGiras.setEnabled(ena);
+        txtNumSencillos.setEnabled(ena);
+        txtSalario.setEnabled(ena);
+    }
 
     private boolean camposObligatorios() {
         if (txtCodigo.getText().isEmpty()
@@ -259,22 +380,10 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
         }
     }
 
-    private void limpiarCampos() {
-        txtCodigo.setText("");
-        txtApellido.setText("");
-        txtEdad.setText("");
-        txtGeneroMusical.setText("");
-        txtNacionalidad.setText("");
-        txtNombre.setText("");
-        txtNombreArtistico.setText("");
-        txtNumConciertos.setText("");
-        txtNumGiras.setText("");
-        txtNumSencillos.setText("");
-        txtSalario.setText("");
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrarCantante;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnActualizarCantante;
+    private javax.swing.JButton btnBuscarCantante;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
