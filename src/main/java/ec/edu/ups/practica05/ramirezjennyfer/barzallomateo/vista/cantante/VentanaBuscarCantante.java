@@ -108,25 +108,25 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Numero de giras");
 
-        txtNombre.setEditable(false);
+        txtNombre.setEnabled(false);
 
-        txtApellido.setEditable(false);
+        txtApellido.setEnabled(false);
 
-        txtEdad.setEditable(false);
+        txtEdad.setEnabled(false);
 
-        txtNacionalidad.setEditable(false);
+        txtNacionalidad.setEnabled(false);
 
-        txtSalario.setEditable(false);
+        txtSalario.setEnabled(false);
 
-        txtNombreArtistico.setEditable(false);
+        txtNombreArtistico.setEnabled(false);
 
-        txtGeneroMusical.setEditable(false);
+        txtGeneroMusical.setEnabled(false);
 
-        txtNumSencillos.setEditable(false);
+        txtNumSencillos.setEnabled(false);
 
-        txtNumConciertos.setEditable(false);
+        txtNumConciertos.setEnabled(false);
 
-        txtNumGiras.setEditable(false);
+        txtNumGiras.setEnabled(false);
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -280,7 +280,7 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
             txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
             txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
             txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
-            txtSalario.setText(String.valueOf(cantante.getSalario()));
+            txtSalario.setText(String.valueOf(cantante.calcularSalario()));
             cargarDiscos(cantante);
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
@@ -306,7 +306,7 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
         txtNombre.setText("");
         txtNombreArtistico.setText("");
         txtNumConciertos.setText("");
-        txtNumGiras.setText("");
+        txtNumGiras.setText(""); 
         txtNumSencillos.setText("");
         txtSalario.setText("");
     }
@@ -324,6 +324,8 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
             modelo.addElement("No tiene discos");
         }
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnSalir;

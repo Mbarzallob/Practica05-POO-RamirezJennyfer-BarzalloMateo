@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
-    private List<Disco> aux;
 
     /**
      * Creates new form VentanaActualizarCantante
@@ -292,9 +291,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             int numeroConciertos = Integer.parseInt(txtNumConciertos.getText());
             int numeroGiras = Integer.parseInt(txtNumGiras.getText());
             Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
-            for (Disco disco : aux) {
-                cantante.agregarDisco(disco.getCodigo(), disco.getNombre(), disco.getAnioDeLanzamiento());
-            }
+            
             if (controladorCantante.actualizarCantante(cantante)) {
 
                 JOptionPane.showMessageDialog(this, "El cantante ha sido actualizado exitosamente! :)");
@@ -323,7 +320,6 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
             txtSalario.setText(String.valueOf(cantante.getSalario()));
             cambiarEstado(true);
-            aux = cantante.listarDiscos();
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
             limpiarCampos();

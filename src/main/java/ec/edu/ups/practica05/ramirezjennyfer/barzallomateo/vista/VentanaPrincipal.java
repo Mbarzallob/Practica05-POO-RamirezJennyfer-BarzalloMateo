@@ -18,6 +18,7 @@ import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.Vent
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaCrearCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaEliminarCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaListarCompositor;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaCrearDisco;
 
 /**
  *
@@ -37,6 +38,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaEliminarCompositor ventanaEliminarCompositor;
     private VentanaListarCompositor ventanaListarCompositor;
 
+    private VentanaCrearDisco ventanaCrearDisco;
+    
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
     
@@ -74,6 +77,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemActualizarCantante = new javax.swing.JMenuItem();
         itemMenuEliminarCantante = new javax.swing.JMenuItem();
         menuItemListarCantante = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        itemMenuRegistrarDisco = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         menuItemRegistrarCompositor = new javax.swing.JMenuItem();
         menuItemBuscarCompositor = new javax.swing.JMenuItem();
@@ -162,6 +167,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         fileMenu.add(menuItemListarCantante);
+
+        jMenu1.setText("Disco");
+
+        itemMenuRegistrarDisco.setText("Registrar disco");
+        itemMenuRegistrarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuRegistrarDiscoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(itemMenuRegistrarDisco);
+
+        fileMenu.add(jMenu1);
 
         menuBar.add(fileMenu);
 
@@ -325,6 +342,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaListarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemListarCompositorActionPerformed
 
+    private void itemMenuRegistrarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuRegistrarDiscoActionPerformed
+        if(ventanaCrearDisco==null){
+            ventanaCrearDisco= new VentanaCrearDisco(controladorCantante);
+            desktopPane.add(ventanaCrearDisco);
+        }
+        ventanaCrearDisco.setVisible(true);
+    }//GEN-LAST:event_itemMenuRegistrarDiscoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -370,7 +395,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem itemMenuCrearCantante;
     private javax.swing.JMenuItem itemMenuEliminarCantante;
+    private javax.swing.JMenuItem itemMenuRegistrarDisco;
     private javax.swing.JMenuItem itemMenuVerCantante;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemActualizarCantante;

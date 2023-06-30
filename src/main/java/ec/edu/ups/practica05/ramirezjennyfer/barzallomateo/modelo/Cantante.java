@@ -35,7 +35,7 @@ public class Cantante extends Persona {
         this.numeroDeConciertos = numeroDeConciertos;
         this.numeroDeGiras = numeroDeGiras;
         discografia = new ArrayList<>();
-        super.setSalario(calcularSalario());  
+        super.setSalario(calcularSalario());
     }
 
     // Getter y setter: Encapsulamiento de los atributos

@@ -41,7 +41,17 @@ public class ControladorCantante {
     public boolean actualizarCantante(Cantante cantante) {
         Cantante cantanteEncontrado = this.buscarCantante(cantante.getCodigo());
         if (cantanteEncontrado != null) {
-            cantanteDAO.update(cantante);
+            cantanteEncontrado.setApellido(cantante.getApellido());
+            cantanteEncontrado.setNombre(cantante.getNombre());
+            cantanteEncontrado.setEdad(cantante.getEdad());
+            cantanteEncontrado.setGeneroMusical(cantante.getGeneroMusical());
+            cantanteEncontrado.setNacionalidad(cantante.getNacionalidad());
+            cantanteEncontrado.setNombreArtistico(cantante.getNombreArtistico());
+            cantanteEncontrado.setNumeroDeConciertos(cantante.getNumeroDeConciertos());
+            cantanteEncontrado.setNumeroDeGiras(cantante.getNumeroDeGiras());
+            cantanteEncontrado.setNumeroDeSencillos(cantante.getNumeroDeSencillos());
+            cantanteEncontrado.setSalario(cantante.getSalario());
+            cantanteDAO.update(cantanteEncontrado);
             return true;
         } else {
             return false;
@@ -65,6 +75,7 @@ public class ControladorCantante {
 
     public void ingresarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
+
         cantanteDAO.createDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
         cantanteDAO.update(this.cantante);
     }

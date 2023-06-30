@@ -6,7 +6,9 @@ package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaListarCantante extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
+
     /**
      * Creates new form VentanaVerCantantes
      */
@@ -37,6 +40,8 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCantante = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDisco = new javax.swing.JTable();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -66,15 +71,20 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nombre", "Edad", "Nacionalidad", "Nombre artistico", "Genero Musical"
+                "Codigo", "Nombre", "Apellido", "Edad", "Nacionalidad", "Salario", "Nombre artistico", "Genero Musical", "# de sencillos", "# de conciertos", "# de giras"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblCantante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCantanteMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblCantante);
@@ -86,36 +96,70 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             }
         });
 
+        tblDisco.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Año de lanzamiento"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblDisco);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 355, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(437, 437, 437)
                 .addComponent(btnSalir)
-                .addGap(231, 231, 231))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnSalir)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,17 +173,44 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void cargarTabla(){
+    private void tblCantanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCantanteMouseClicked
+        int fila = tblCantante.getSelectedRow();
+        int codigo = Integer.parseInt(tblCantante.getValueAt(fila, 0).toString());
+        Cantante cantante = controladorCantante.buscarCantante(codigo);
+        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        modelo.setNumRows(0);
+        List<Disco> listaDisco = controladorCantante.listarDiscos(cantante);
+        if (!listaDisco.isEmpty()) {
+            for (Disco disco : listaDisco) {
+                String codigoDisco = String.valueOf(disco.getCodigo());
+                String nombreDisco = disco.getNombre();
+                String anioLanzamiento = String.valueOf(disco.getAnioDeLanzamiento());
+                Object[] rowData = {codigoDisco, nombreDisco, anioLanzamiento};
+                modelo.addRow(rowData);
+            }
+            tblDisco.setModel(modelo);
+        } else {
+            JOptionPane.showMessageDialog(this, "El cantante " + cantante.getNombre() + " " + cantante.getApellido() + " no tiene discos registrados");
+        }
+    }//GEN-LAST:event_tblCantanteMouseClicked
+
+    private void cargarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) tblCantante.getModel();
         modelo.setNumRows(0);
         List<Cantante> listaCantante = controladorCantante.listar();
         for (Cantante cantante : listaCantante) {
+            String codigo = String.valueOf(cantante.getCodigo());
             String nombre = cantante.getNombre();
+            String apellido = cantante.getApellido();
             String edad = String.valueOf(cantante.getEdad());
             String nacionalidad = cantante.getNacionalidad();
+            String salario = String.valueOf(cantante.calcularSalario());
             String nombreArtistico = cantante.getNombreArtistico();
             String generoMusical = cantante.getGeneroMusical();
-            Object[] rowData ={nombre,edad, nacionalidad, nombreArtistico,generoMusical};
+            String numSencillos = String.valueOf(cantante.getNumeroDeSencillos());
+            String numConciertos = String.valueOf(cantante.getNumeroDeConciertos());
+            String numGiras = String.valueOf(cantante.getNumeroDeGiras());
+            Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, nombreArtistico, generoMusical, numSencillos, numConciertos, numGiras};
             modelo.addRow(rowData);
         }
         tblCantante.setModel(modelo);
@@ -149,6 +220,8 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblCantante;
+    private javax.swing.JTable tblDisco;
     // End of variables declaration//GEN-END:variables
 }
