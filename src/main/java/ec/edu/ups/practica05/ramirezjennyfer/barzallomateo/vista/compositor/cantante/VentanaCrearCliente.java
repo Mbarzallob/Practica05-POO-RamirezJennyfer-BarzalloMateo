@@ -211,6 +211,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             String numComposiciones = String.valueOf(compositor.getNumeroDeComposiciones());
             Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, numComposiciones};
             modelo.addRow(rowData);
+            System.out.println("");
         }
         tblCompositor.setModel(modelo);
     }
