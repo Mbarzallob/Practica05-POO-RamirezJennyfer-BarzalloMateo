@@ -155,6 +155,6 @@ public class Compositor extends Persona {
     // Metodo To String 
     @Override
     public String toString() {
-        return "Compositor{" + super.toString() + "numeroDeComposiciones=" + numeroDeComposiciones + ", /ncancionesTop100Bilboard=" + cancionesTop100Bilboard + ", \nclientes=" + clientes + '}';
+        return String.valueOf(super.getCodigo());
     }
 }

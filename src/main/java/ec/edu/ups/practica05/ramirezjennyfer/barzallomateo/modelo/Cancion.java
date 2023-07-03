@@ -94,6 +94,6 @@ public class Cancion {
     // Metodo To String
     @Override
     public String toString() {
-        return "Cancion{" + "codigo =" + codigo + ", titulo=" + titulo + ", letra=" + letra + ", tiempoEnMinutos=" + tiempoEnMinutos + '}';
+        return String.valueOf(codigo);
     }
 }

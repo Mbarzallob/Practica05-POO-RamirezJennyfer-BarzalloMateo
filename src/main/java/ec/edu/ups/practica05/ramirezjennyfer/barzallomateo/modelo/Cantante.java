@@ -162,6 +162,6 @@ public class Cantante extends Persona {
     // Metodo To String
     @Override
     public String toString() {
-        return "Cantante{" + super.toString() + "nombreArtistico=" + nombreArtistico + ", generoMusical=" + generoMusical + ", numeroDeSencillos=" + numeroDeSencillos + ", numeroDeConciertos=" + numeroDeConciertos + ", numeroDeGiras=" + numeroDeGiras + ", /ndiscografia=" + discografia + '}';
+        return String.valueOf(super.getCodigo());
     }
 }
