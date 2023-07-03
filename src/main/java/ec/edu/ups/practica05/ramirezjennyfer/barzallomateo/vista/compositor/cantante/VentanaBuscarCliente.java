@@ -54,12 +54,12 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtTitulo = new javax.swing.JTextField();
-        txtLetra = new javax.swing.JTextField();
+        txtNombreCantante = new javax.swing.JTextField();
+        txtApellidoCantante = new javax.swing.JTextField();
         btnSeleccionar = new javax.swing.JButton();
         btnCancelarSeleccion = new javax.swing.JButton();
         cbxCliente = new javax.swing.JComboBox<>();
-        txtDuracion = new javax.swing.JTextField();
+        txtEdadCantante = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtNacionalidad = new javax.swing.JTextField();
@@ -137,9 +137,9 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Apellido");
 
-        txtTitulo.setEnabled(false);
+        txtNombreCantante.setEnabled(false);
 
-        txtLetra.setEnabled(false);
+        txtApellidoCantante.setEnabled(false);
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.setEnabled(false);
@@ -165,7 +165,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        txtDuracion.setEnabled(false);
+        txtEdadCantante.setEnabled(false);
 
         jLabel10.setText("Edad");
 
@@ -257,15 +257,15 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel10)
                                         .addGap(120, 120, 120)
-                                        .addComponent(txtDuracion))
+                                        .addComponent(txtEdadCantante))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addGap(103, 103, 103)
-                                        .addComponent(txtLetra))
+                                        .addComponent(txtApellidoCantante))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(103, 103, 103)
-                                        .addComponent(txtTitulo))
+                                        .addComponent(txtNombreCantante))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel6)
                                         .addGap(108, 108, 108)
@@ -310,16 +310,16 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelarSeleccion))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
-                            .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEdadCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -427,9 +427,10 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     private void cbxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxClienteActionPerformed
         if (cbxCliente.getSelectedItem() != null) {
             Cancion cancion = (Cancion) cbxCliente.getSelectedItem();
-            txtDuracion.setText(String.valueOf(cancion.getTiempoEnMinutos()));
-            txtTitulo.setText(cancion.getTitulo());
-            txtLetra.setText(cancion.getLetra());
+            txtEdadCantante.setText(String.valueOf(cancion.getTiempoEnMinutos()));
+            txtNombreCantante.setText(cancion.getTitulo());
+            txtApellidoCantante.setText(cancion.getLetra());
+            System.out.println("");
         }
     }//GEN-LAST:event_cbxClienteActionPerformed
 
@@ -457,9 +458,9 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     }
 
     private void limpiarCamposCancion() {
-        txtTitulo.setText("");
-        txtLetra.setText("");
-        txtDuracion.setText("");
+        txtNombreCantante.setText("");
+        txtApellidoCantante.setText("");
+        txtEdadCantante.setText("");
         
     }
 
@@ -473,9 +474,9 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             modelo.addElement(cancion);
         }
         Cancion cancion = (Cancion) modelo.getSelectedItem();
-        txtTitulo.setText(cancion.getTitulo());
-        txtLetra.setText(cancion.getLetra());
-        txtDuracion.setText(String.valueOf(cancion.getTiempoEnMinutos()));
+        txtNombreCantante.setText(cancion.getTitulo());
+        txtApellidoCantante.setText(cancion.getLetra());
+        txtEdadCantante.setText(String.valueOf(cancion.getTiempoEnMinutos()));
     }
 
 
@@ -504,18 +505,18 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtApellidoCantante;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtDuracion;
+    private javax.swing.JTextField txtEdadCantante;
     private javax.swing.JTextField txtGeneroMusical;
-    private javax.swing.JTextField txtLetra;
     private javax.swing.JTextField txtNacionalidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreArtistico;
+    private javax.swing.JTextField txtNombreCantante;
     private javax.swing.JTextField txtNumComposiciones;
     private javax.swing.JTextField txtNumConciertos;
     private javax.swing.JTextField txtNumGiras;
     private javax.swing.JTextField txtNumSencillos;
     private javax.swing.JTextField txtSalario;
-    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,8 +6,7 @@ package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
-import java.util.List;
+
 import javax.swing.JOptionPane;
 
 /**

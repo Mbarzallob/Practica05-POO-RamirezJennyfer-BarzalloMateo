@@ -114,17 +114,17 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="txtDuracion" max="32767" attributes="0"/>
+                                          <Component id="txtEdadCantante" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                          <Component id="txtLetra" max="32767" attributes="0"/>
+                                          <Component id="txtApellidoCantante" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                                          <Component id="txtTitulo" max="32767" attributes="0"/>
+                                          <Component id="txtNombreCantante" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -185,18 +185,18 @@
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNombreCantante" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCancelarSeleccion" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLetra" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApellidoCantante" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEdadCantante" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -319,12 +319,12 @@
             <Property name="text" type="java.lang.String" value="Apellido"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTitulo">
+        <Component class="javax.swing.JTextField" name="txtNombreCantante">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtLetra">
+        <Component class="javax.swing.JTextField" name="txtApellidoCantante">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -363,7 +363,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDuracion">
+        <Component class="javax.swing.JTextField" name="txtEdadCantante">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
