@@ -55,6 +55,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
             }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -170,7 +171,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameActivated
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        this.setVisible(false);
+        salir();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void tblCantanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCantanteMouseClicked
@@ -194,6 +195,10 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_tblCantanteMouseClicked
 
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        salir();
+    }//GEN-LAST:event_formInternalFrameClosing
+
     private void cargarTabla() {
         DefaultTableModel modelo = (DefaultTableModel) tblCantante.getModel();
         modelo.setNumRows(0);
@@ -214,6 +219,13 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             modelo.addRow(rowData);
         }
         tblCantante.setModel(modelo);
+    }
+    
+    private void salir(){
+        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        modelo.setNumRows(0);
+        tblDisco.setModel(modelo);
+        this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

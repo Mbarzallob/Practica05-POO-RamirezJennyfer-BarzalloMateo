@@ -78,6 +78,6 @@ public class Disco {
     // Metodo To String
     @Override
     public String toString() {
-        return "Disco{" + "codigo=" + codigo + ", nombre=" + nombre + ", anioDeLanzamiento=" + anioDeLanzamiento + '}';
+        return  String.valueOf(codigo) ;
     }   
 }

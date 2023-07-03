@@ -18,20 +18,24 @@ import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.Vent
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaCrearCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaEliminarCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaListarCompositor;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaActualizarDisco;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaBuscarDisco;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaCrearDisco;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaEliminarDisco;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaListarDisco;
 
 /**
  *
  * @author SOPORTETICS
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-    
+
     private VentanaCrearCantante ventanaCrearCantante;
     private VentanaBuscarCantante ventanaBuscarCantante;
     private VentanaActualizarCantante ventanaActualizarCantante;
     private VentanaEliminarCantante ventanaEliminarCantante;
     private VentanaListarCantante ventanaListarCantante;
-    
+
     private VentanaCrearCompositor ventanaCrearCompositor;
     private VentanaBuscarCompositor ventanaBuscarCompositor;
     private VentanaActualizarCompositor ventanaActualizarCompositor;
@@ -39,12 +43,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarCompositor ventanaListarCompositor;
 
     private VentanaCrearDisco ventanaCrearDisco;
-    
+    private VentanaBuscarDisco ventanaBuscarDisco;
+    private VentanaActualizarDisco ventanaActualizarDisco;
+    private VentanaEliminarDisco ventanaEliminarDisco;
+    private VentanaListarDisco ventanaListarDisco;
+
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
-    
+
     private CantanteDAO cantanteDAO;
     private CompositorDAO compositorDAO;
+
     /**
      * Creates new form VentanaPrincipal
      */
@@ -54,8 +63,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCantante = new ControladorCantante(cantanteDAO);
         compositorDAO = new CompositorDAO();
         controladorCompositor = new ControladorCompositor(compositorDAO, cantanteDAO);
-      
-        
+
     }
 
     //System.exit(0);
@@ -79,6 +87,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemListarCantante = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         itemMenuRegistrarDisco = new javax.swing.JMenuItem();
+        menuItemBuscarDisco = new javax.swing.JMenuItem();
+        menuItemActualizarDisco = new javax.swing.JMenuItem();
+        menuItemEliminarDisco = new javax.swing.JMenuItem();
+        menuItemListarDisco = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         menuItemRegistrarCompositor = new javax.swing.JMenuItem();
         menuItemBuscarCompositor = new javax.swing.JMenuItem();
@@ -101,7 +113,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         desktopPane.setLayout(desktopPaneLayout);
         desktopPaneLayout.setHorizontalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
+            .addGap(0, 1217, Short.MAX_VALUE)
         );
         desktopPaneLayout.setVerticalGroup(
             desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +124,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +191,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(itemMenuRegistrarDisco);
+
+        menuItemBuscarDisco.setText("Buscar disco");
+        menuItemBuscarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarDiscoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemBuscarDisco);
+
+        menuItemActualizarDisco.setText("Actualizar disco");
+        menuItemActualizarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarDiscoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemActualizarDisco);
+
+        menuItemEliminarDisco.setText("Eliminar disco");
+        menuItemEliminarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarDiscoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemEliminarDisco);
+
+        menuItemListarDisco.setText("Listar disco");
+        menuItemListarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarDiscoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItemListarDisco);
 
         fileMenu.add(jMenu1);
 
@@ -263,15 +309,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemMenuEliminarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuEliminarCantanteActionPerformed
-        if(ventanaEliminarCantante==null){
-            ventanaEliminarCantante= new VentanaEliminarCantante(controladorCantante);
+        if (ventanaEliminarCantante == null) {
+            ventanaEliminarCantante = new VentanaEliminarCantante(controladorCantante);
             desktopPane.add(ventanaEliminarCantante);
         }
         ventanaEliminarCantante.setVisible(true);
     }//GEN-LAST:event_itemMenuEliminarCantanteActionPerformed
 
     private void itemMenuCrearCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuCrearCantanteActionPerformed
-        if(ventanaCrearCantante == null){
+        if (ventanaCrearCantante == null) {
             ventanaCrearCantante = new VentanaCrearCantante(controladorCantante);
             desktopPane.add(ventanaCrearCantante);
         }
@@ -279,7 +325,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuCrearCantanteActionPerformed
 
     private void itemMenuVerCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerCantanteActionPerformed
-        if(ventanaBuscarCantante == null){
+        if (ventanaBuscarCantante == null) {
             ventanaBuscarCantante = new VentanaBuscarCantante(controladorCantante);
             desktopPane.add(ventanaBuscarCantante);
         }
@@ -287,7 +333,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMenuVerCantanteActionPerformed
 
     private void menuItemActualizarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCantanteActionPerformed
-        if(ventanaActualizarCantante==null){
+        if (ventanaActualizarCantante == null) {
             ventanaActualizarCantante = new VentanaActualizarCantante(controladorCantante);
             desktopPane.add(ventanaActualizarCantante);
         }
@@ -295,60 +341,93 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemActualizarCantanteActionPerformed
 
     private void menuItemListarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCantanteActionPerformed
-        if(ventanaListarCantante==null){
-            ventanaListarCantante= new VentanaListarCantante(controladorCantante);
+        if (ventanaListarCantante == null) {
+            ventanaListarCantante = new VentanaListarCantante(controladorCantante);
             desktopPane.add(ventanaListarCantante);
         }
         ventanaListarCantante.setVisible(true);
     }//GEN-LAST:event_menuItemListarCantanteActionPerformed
 
     private void menuItemRegistrarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCompositorActionPerformed
-        if(ventanaCrearCompositor==null){
-            ventanaCrearCompositor= new VentanaCrearCompositor(controladorCompositor);
+        if (ventanaCrearCompositor == null) {
+            ventanaCrearCompositor = new VentanaCrearCompositor(controladorCompositor);
             desktopPane.add(ventanaCrearCompositor);
         }
         ventanaCrearCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemRegistrarCompositorActionPerformed
 
     private void menuItemBuscarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCompositorActionPerformed
-        if(ventanaBuscarCompositor==null){
-            ventanaBuscarCompositor= new VentanaBuscarCompositor(controladorCompositor);
+        if (ventanaBuscarCompositor == null) {
+            ventanaBuscarCompositor = new VentanaBuscarCompositor(controladorCompositor);
             desktopPane.add(ventanaBuscarCompositor);
         }
         ventanaBuscarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemBuscarCompositorActionPerformed
 
     private void menuItemActualizarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCompositorActionPerformed
-        if(ventanaActualizarCompositor==null){
-            ventanaActualizarCompositor= new VentanaActualizarCompositor(controladorCompositor);
+        if (ventanaActualizarCompositor == null) {
+            ventanaActualizarCompositor = new VentanaActualizarCompositor(controladorCompositor);
             desktopPane.add(ventanaActualizarCompositor);
         }
         ventanaActualizarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemActualizarCompositorActionPerformed
 
     private void menuItemEliminarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCompositorActionPerformed
-        if(ventanaEliminarCompositor==null){
-            ventanaEliminarCompositor= new VentanaEliminarCompositor(controladorCompositor);
+        if (ventanaEliminarCompositor == null) {
+            ventanaEliminarCompositor = new VentanaEliminarCompositor(controladorCompositor);
             desktopPane.add(ventanaEliminarCompositor);
         }
         ventanaEliminarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemEliminarCompositorActionPerformed
 
     private void menuItemListarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCompositorActionPerformed
-        if(ventanaListarCompositor==null){
-            ventanaListarCompositor= new VentanaListarCompositor(controladorCompositor);
+        if (ventanaListarCompositor == null) {
+            ventanaListarCompositor = new VentanaListarCompositor(controladorCompositor);
             desktopPane.add(ventanaListarCompositor);
         }
         ventanaListarCompositor.setVisible(true);
     }//GEN-LAST:event_menuItemListarCompositorActionPerformed
 
     private void itemMenuRegistrarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuRegistrarDiscoActionPerformed
-        if(ventanaCrearDisco==null){
-            ventanaCrearDisco= new VentanaCrearDisco(controladorCantante);
+        if (ventanaCrearDisco == null) {
+            ventanaCrearDisco = new VentanaCrearDisco(controladorCantante);
             desktopPane.add(ventanaCrearDisco);
         }
         ventanaCrearDisco.setVisible(true);
     }//GEN-LAST:event_itemMenuRegistrarDiscoActionPerformed
+
+    private void menuItemBuscarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarDiscoActionPerformed
+        if (ventanaBuscarDisco == null) {
+            ventanaBuscarDisco = new VentanaBuscarDisco(controladorCantante);
+            desktopPane.add(ventanaBuscarDisco);
+        }
+        ventanaBuscarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemBuscarDiscoActionPerformed
+
+    private void menuItemActualizarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarDiscoActionPerformed
+        if (ventanaActualizarDisco == null) {
+            ventanaActualizarDisco = new VentanaActualizarDisco(controladorCantante);
+            desktopPane.add(ventanaActualizarDisco);
+        }
+        ventanaActualizarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarDiscoActionPerformed
+
+    private void menuItemEliminarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarDiscoActionPerformed
+        if (ventanaEliminarDisco == null) {
+            ventanaEliminarDisco = new VentanaEliminarDisco(controladorCantante);
+            desktopPane.add(ventanaEliminarDisco);
+        }
+        ventanaEliminarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarDiscoActionPerformed
+
+    private void menuItemListarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarDiscoActionPerformed
+
+         if (ventanaListarDisco == null) {
+            ventanaListarDisco = new VentanaListarDisco(controladorCantante);
+            desktopPane.add(ventanaListarDisco);
+        }
+        ventanaListarDisco.setVisible(true);
+    }//GEN-LAST:event_menuItemListarDiscoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,10 +481,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemActualizarCantante;
     private javax.swing.JMenuItem menuItemActualizarCompositor;
+    private javax.swing.JMenuItem menuItemActualizarDisco;
     private javax.swing.JMenuItem menuItemBuscarCompositor;
+    private javax.swing.JMenuItem menuItemBuscarDisco;
     private javax.swing.JMenuItem menuItemEliminarCompositor;
+    private javax.swing.JMenuItem menuItemEliminarDisco;
     private javax.swing.JMenuItem menuItemListarCantante;
     private javax.swing.JMenuItem menuItemListarCompositor;
+    private javax.swing.JMenuItem menuItemListarDisco;
     private javax.swing.JMenuItem menuItemRegistrarCompositor;
     // End of variables declaration//GEN-END:variables
 

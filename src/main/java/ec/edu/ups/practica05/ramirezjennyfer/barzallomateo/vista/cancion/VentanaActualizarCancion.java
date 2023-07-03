@@ -2,24 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco;
+package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion;
 
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.*;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
+
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author SOPORTETICS
  */
-public class VentanaCrearDisco extends javax.swing.JInternalFrame {
+public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
 
     private ControladorCantante controladorCantante;
 
     /**
-     * Creates new form VentanaCrearDisco
+     * Creates new form VentanaActualizarDisco
      */
-    public VentanaCrearDisco(ControladorCantante controladorCantante) {
+    public VentanaActualizarCancion(ControladorCantante controladorCantante) {
         initComponents();
         this.controladorCantante = controladorCantante;
     }
@@ -51,12 +56,12 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtCodigoDisco = new javax.swing.JTextField();
         txtNombreDisco = new javax.swing.JTextField();
         txtAnioLanzamiento = new javax.swing.JTextField();
-        btnRegistrarDisco = new javax.swing.JButton();
         btnSeleccionar = new javax.swing.JButton();
         btnCancelarSeleccion = new javax.swing.JButton();
+        cbxDisco = new javax.swing.JComboBox<>();
+        btnActualizarDisco = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -123,19 +128,9 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
 
         jLabel9.setText("Año de lanzamiento");
 
-        txtCodigoDisco.setEnabled(false);
-
         txtNombreDisco.setEnabled(false);
 
         txtAnioLanzamiento.setEnabled(false);
-
-        btnRegistrarDisco.setText("Registrar disco");
-        btnRegistrarDisco.setEnabled(false);
-        btnRegistrarDisco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarDiscoActionPerformed(evt);
-            }
-        });
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.setEnabled(false);
@@ -150,6 +145,27 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         btnCancelarSeleccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarSeleccionActionPerformed(evt);
+            }
+        });
+
+        cbxDisco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discos" }));
+        cbxDisco.setEnabled(false);
+        cbxDisco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbxDiscoMouseClicked(evt);
+            }
+        });
+        cbxDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDiscoActionPerformed(evt);
+            }
+        });
+
+        btnActualizarDisco.setText("Actualizar disco");
+        btnActualizarDisco.setEnabled(false);
+        btnActualizarDisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarDiscoActionPerformed(evt);
             }
         });
 
@@ -174,10 +190,7 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel10))
                                 .addGap(58, 58, 58)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnBuscar)
-                                        .addGap(207, 207, 207)
-                                        .addComponent(btnSalir))
+                                    .addComponent(btnBuscar)
                                     .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -185,33 +198,35 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
                                             .addComponent(txtNombre)
                                             .addComponent(txtApellido)
                                             .addComponent(txtGeneroMusical))
-                                        .addGap(34, 34, 34)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSeleccionar)
-                                            .addComponent(btnCancelarSeleccion))
-                                        .addGap(54, 54, 54)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel9))))))))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(34, 34, 34)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(btnSeleccionar)
+                                                    .addComponent(btnCancelarSeleccion))
+                                                .addGap(54, 54, 54)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel6)
+                                                    .addComponent(jLabel7)
+                                                    .addComponent(jLabel9)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(137, 137, 137)
+                                                .addComponent(btnSalir)))))))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(173, 173, 173))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtCodigoDisco)
-                                .addContainerGap())))
+                        .addComponent(jLabel5)
+                        .addGap(173, 173, 173))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnRegistrarDisco)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtAnioLanzamiento)
-                            .addComponent(txtNombreDisco))
+                            .addComponent(txtNombreDisco)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnActualizarDisco))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -245,13 +260,12 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
                             .addComponent(jLabel10)
                             .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscar)
-                            .addComponent(btnSalir)))
+                        .addComponent(btnBuscar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(txtCodigoDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbxDisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -262,8 +276,10 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9)
                             .addComponent(txtAnioLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnRegistrarDisco)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addComponent(btnActualizarDisco)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)
+                        .addGap(29, 29, 29))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -308,25 +324,6 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnRegistrarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarDiscoActionPerformed
-
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Cantante cantante = controladorCantante.buscarCantante(codigo);
-
-        if (validarCamposDisco()) {
-            String nombreDisco = txtNombreDisco.getText();
-            int codigoDisco = Integer.parseInt(txtCodigoDisco.getText());
-            int anio = Integer.parseInt(txtAnioLanzamiento.getText());
-            controladorCantante.ingresarDisco(cantante, codigoDisco, nombreDisco, anio);
-            JOptionPane.showMessageDialog(this, "El disco " + nombreDisco + " a sido ingresado exitosamente :)");
-            cerrarPantalla();
-        } else {
-            JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
-        }
-
-
-    }//GEN-LAST:event_btnRegistrarDiscoActionPerformed
-
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         if (!txtCodigo.getText().isEmpty()) {
             int codigoIngresado = Integer.parseInt(txtCodigo.getText());
@@ -337,8 +334,10 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
                     txtCodigo.setEnabled(false);
                     btnCancelarSeleccion.setEnabled(true);
                     btnSeleccionar.setEnabled(false);
-                    enableDisco(true);
                     btnBuscar.setEnabled(false);
+                    cbxDisco.setEnabled(true);
+                    enableDisco(true);
+                    cargarDatosCombo();
 
                 } else {
                     JOptionPane.showMessageDialog(this, "El código ha sido cambiado");
@@ -349,42 +348,67 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "El código ha sido cambiado");
         }
-
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnCancelarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarSeleccionActionPerformed
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
-        enableDisco(false);
         btnBuscar.setEnabled(true);
-
+        enableDisco(false);
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
+
+    private void cbxDiscoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxDiscoMouseClicked
+
+        cargarDatosCombo();
+
+    }//GEN-LAST:event_cbxDiscoMouseClicked
+
+    private void btnActualizarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarDiscoActionPerformed
+        if (validarCamposDisco()) {
+            Cantante cantante = controladorCantante.buscarCantante(Integer.parseInt(txtCodigo.getText()));
+            DefaultComboBoxModel<Disco> modelo = (DefaultComboBoxModel) cbxDisco.getModel();
+            Disco disco = (Disco) modelo.getSelectedItem();
+            int codigo = disco.getCodigo();
+            String nombreDisco = txtNombreDisco.getText();
+            int anioLanza = Integer.parseInt(txtAnioLanzamiento.getText());
+            controladorCantante.actualizarDisco(cantante, codigo, nombreDisco, anioLanza);
+            JOptionPane.showMessageDialog(this, "El disco con el codigo " + codigo + " ha sido registrado exitosamente!");
+            enableDisco(false);
+            txtCodigo.setEnabled(true);
+            btnBuscar.setEnabled(true);
+            btnCancelarSeleccion.setEnabled(false);
+            limpiarCamposCantante();
+            limpiarCamposDisco();
+        } else {
+            JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
+        }
+
+    }//GEN-LAST:event_btnActualizarDiscoActionPerformed
+
+    private void cbxDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiscoActionPerformed
+         if (cbxDisco.getSelectedItem() != null) {
+            Disco disco = (Disco) cbxDisco.getSelectedItem();
+            txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
+            txtNombreDisco.setText(disco.getNombre());
+        }
+    }//GEN-LAST:event_cbxDiscoActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
 
-    private boolean validarCamposDisco() {
-        if (txtNombreDisco.getText().isEmpty()
-                || txtCodigoDisco.getText().isEmpty()
-                || txtAnioLanzamiento.getText().isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     private void cerrarPantalla() {
         limpiarCamposCantante();
         limpiarCamposDisco();
-        enableDisco(false);
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(false);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
-        
-        
+        cbxDisco.setEnabled(false);
+        cbxDisco.removeAllItems();
+        enableDisco(false);
+
     }
 
     private void limpiarCamposCantante() {
@@ -396,24 +420,46 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
     }
 
     private void limpiarCamposDisco() {
-        txtCodigoDisco.setText("");
         txtNombreDisco.setText("");
         txtAnioLanzamiento.setText("");
+        cbxDisco.removeAllItems();
+    }
+
+    private void cargarDatosCombo() {
+        DefaultComboBoxModel<Disco> modelo = (DefaultComboBoxModel) cbxDisco.getModel();
+        Cantante cantante = this.controladorCantante.buscarCantante(Integer.parseInt(txtCodigo.getText()));
+        modelo.removeAllElements();
+        List<Disco> listaDiscos = cantante.listarDiscos();
+
+        for (Disco disco : listaDiscos) {
+            modelo.addElement(disco);
+        }
+        Disco disco = (Disco) modelo.getSelectedItem();
+        txtNombreDisco.setText(disco.getNombre());
+        txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
     }
 
     private void enableDisco(boolean val) {
+        cbxDisco.setEnabled(val);
         txtNombreDisco.setEnabled(val);
-        txtCodigoDisco.setEnabled(val);
         txtAnioLanzamiento.setEnabled(val);
-        btnRegistrarDisco.setEnabled(val);
+        btnActualizarDisco.setEnabled(val);
     }
 
+    private boolean validarCamposDisco() {
+        if (txtNombre.getText().isEmpty() || txtAnioLanzamiento.getText().isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarDisco;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelarSeleccion;
-    private javax.swing.JButton btnRegistrarDisco;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
+    private javax.swing.JComboBox<String> cbxDisco;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -428,7 +474,6 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtAnioLanzamiento;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtCodigoDisco;
     private javax.swing.JTextField txtGeneroMusical;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreArtistico;

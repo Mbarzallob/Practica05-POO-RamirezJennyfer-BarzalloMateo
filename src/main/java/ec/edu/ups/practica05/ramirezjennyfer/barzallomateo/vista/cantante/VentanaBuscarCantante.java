@@ -309,6 +309,8 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
         txtNumGiras.setText(""); 
         txtNumSencillos.setText("");
         txtSalario.setText("");
+        DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel) this.cbxDiscos.getModel();
+        modelo.removeAllElements();
     }
     
     private void cargarDiscos(Cantante cantante){

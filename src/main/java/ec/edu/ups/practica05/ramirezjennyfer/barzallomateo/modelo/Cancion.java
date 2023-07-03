@@ -4,7 +4,6 @@
  */
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo;
 
-import java.util.Objects;
 
 /**
  *
