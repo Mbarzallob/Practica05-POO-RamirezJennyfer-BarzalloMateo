@@ -247,7 +247,7 @@ public class VentanaListarCompositor extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(this, "El compositor " + compositor.getNombre() + " " + compositor.getApellido() + " no tiene cantantes registrados");
         }
-        DefaultTableModel modeloCancion = (DefaultTableModel) tblCantante.getModel();
+        DefaultTableModel modeloCancion = (DefaultTableModel) tblCancion.getModel();
         modeloCancion.setNumRows(0);
         List<Cancion> listaCancion = controladorCompositor.listarCanciones(compositor);
         if (!listaCancion.isEmpty()) {

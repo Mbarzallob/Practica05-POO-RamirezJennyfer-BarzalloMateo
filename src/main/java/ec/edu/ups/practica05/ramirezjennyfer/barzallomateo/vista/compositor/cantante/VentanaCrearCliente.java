@@ -54,6 +54,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         setResizable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameActivated(evt);
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -193,9 +194,13 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        salir();
+    }//GEN-LAST:event_formInternalFrameClosing
+
+    private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         cargarCantante();
         cargarCompositor();
-    }//GEN-LAST:event_formInternalFrameClosing
+    }//GEN-LAST:event_formInternalFrameActivated
 
     private void cargarCompositor() {
         DefaultTableModel modelo = (DefaultTableModel) tblCompositor.getModel();
@@ -211,7 +216,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             String numComposiciones = String.valueOf(compositor.getNumeroDeComposiciones());
             Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, numComposiciones};
             modelo.addRow(rowData);
-            System.out.println("");
+
         }
         tblCompositor.setModel(modelo);
     }

@@ -277,6 +277,8 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
         txtNacionalidad.setText("");
         txtNombre.setText("");
         txtSalario.setText("");
+        cbxCanciones.removeAllItems();
+        cbxCantantes.removeAllItems();
     }
 
     private void cargarCanciones(Compositor compositor) {
