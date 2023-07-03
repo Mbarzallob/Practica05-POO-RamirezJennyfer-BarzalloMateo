@@ -23,7 +23,11 @@ import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.Vent
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaCrearCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaEliminarCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.VentanaListarCompositor;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante.VentanaActualizarCliente;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante.VentanaBuscarCliente;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante.VentanaCrearCliente;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante.VentanaEliminarCliente;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante.VentanaListarCliente;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaActualizarDisco;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaBuscarDisco;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaCrearDisco;
@@ -61,6 +65,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarCancion ventanaListarCancion;
     
     private VentanaCrearCliente ventanaCrearCliente;
+    private VentanaBuscarCliente ventanaBuscarCliente;
+    private VentanaActualizarCliente ventanaActualizarCliente;
+    private VentanaEliminarCliente ventanaEliminarCliente;
+    private VentanaListarCliente ventanaListarCliente;
 
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
@@ -119,6 +127,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemListarCancion = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menuItemIngresarCliente = new javax.swing.JMenuItem();
+        menuItemBuscarCliente = new javax.swing.JMenuItem();
+        menuItemActualizarCliente = new javax.swing.JMenuItem();
+        menuItemEliminarCliente = new javax.swing.JMenuItem();
+        menuItemListarCliente = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -351,6 +363,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(menuItemIngresarCliente);
 
+        menuItemBuscarCliente.setText("Buscar cliente");
+        menuItemBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemBuscarCliente);
+
+        menuItemActualizarCliente.setText("Actualizar cliente");
+        menuItemActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemActualizarCliente);
+
+        menuItemEliminarCliente.setText("Eliminar cliente");
+        menuItemEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemEliminarCliente);
+
+        menuItemListarCliente.setText("Listar clientes");
+        menuItemListarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarClienteActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuItemListarCliente);
+
         editMenu.add(jMenu3);
 
         menuBar.add(editMenu);
@@ -555,6 +599,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaCrearCliente.setVisible(true);
     }//GEN-LAST:event_menuItemIngresarClienteActionPerformed
 
+    private void menuItemBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarClienteActionPerformed
+        if (ventanaBuscarCliente == null) {
+            ventanaBuscarCliente = new VentanaBuscarCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaBuscarCliente);
+        }
+        ventanaBuscarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemBuscarClienteActionPerformed
+
+    private void menuItemActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarClienteActionPerformed
+         if (ventanaActualizarCliente == null) {
+            ventanaActualizarCliente = new VentanaActualizarCliente(controladorCantante, controladorCompositor);
+            desktopPane.add(ventanaActualizarCliente);
+        }
+        ventanaActualizarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarClienteActionPerformed
+
+    private void menuItemEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarClienteActionPerformed
+        if (ventanaEliminarCliente == null) {
+            ventanaEliminarCliente = new VentanaEliminarCliente(controladorCantante, controladorCompositor);
+            desktopPane.add(ventanaEliminarCliente);
+        }
+        ventanaEliminarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarClienteActionPerformed
+
+    private void menuItemListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarClienteActionPerformed
+       if (ventanaListarCliente == null) {
+            ventanaListarCliente = new VentanaListarCliente(controladorCantante, controladorCompositor);
+            desktopPane.add(ventanaListarCliente);
+        }
+        ventanaListarCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemListarClienteActionPerformed
+
+      
     /**
      * @param args the command line arguments
      */
@@ -609,17 +686,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemActualizarCancion;
     private javax.swing.JMenuItem menuItemActualizarCantante;
+    private javax.swing.JMenuItem menuItemActualizarCliente;
     private javax.swing.JMenuItem menuItemActualizarCompositor;
     private javax.swing.JMenuItem menuItemActualizarDisco;
     private javax.swing.JMenuItem menuItemBuscarCancion;
+    private javax.swing.JMenuItem menuItemBuscarCliente;
     private javax.swing.JMenuItem menuItemBuscarCompositor;
     private javax.swing.JMenuItem menuItemBuscarDisco;
     private javax.swing.JMenuItem menuItemEliminarCancion;
+    private javax.swing.JMenuItem menuItemEliminarCliente;
     private javax.swing.JMenuItem menuItemEliminarCompositor;
     private javax.swing.JMenuItem menuItemEliminarDisco;
     private javax.swing.JMenuItem menuItemIngresarCliente;
     private javax.swing.JMenuItem menuItemListarCancion;
     private javax.swing.JMenuItem menuItemListarCantante;
+    private javax.swing.JMenuItem menuItemListarCliente;
     private javax.swing.JMenuItem menuItemListarCompositor;
     private javax.swing.JMenuItem menuItemListarDisco;
     private javax.swing.JMenuItem menuItemRegistrarCancion;
