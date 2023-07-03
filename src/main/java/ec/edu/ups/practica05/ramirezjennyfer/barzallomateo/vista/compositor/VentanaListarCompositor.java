@@ -260,7 +260,7 @@ public class VentanaListarCompositor extends javax.swing.JInternalFrame {
                 Object[] rowData = {codigoCancion, titulo, letra, tiempo};
                 modeloCancion.addRow(rowData);
             }
-            tblCantante.setModel(modeloCancion);
+            tblCancion.setModel(modeloCancion);
         } else {
             JOptionPane.showMessageDialog(this, "El compositor " + compositor.getNombre() + " " + compositor.getApellido() + " no tiene canciones registradas");
         }
