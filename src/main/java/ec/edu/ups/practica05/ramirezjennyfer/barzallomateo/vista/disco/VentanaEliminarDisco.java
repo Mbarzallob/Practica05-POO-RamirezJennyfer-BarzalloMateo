@@ -155,6 +155,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         });
 
         btnEliminarDisco.setText("Eliminar disco");
+        btnEliminarDisco.setEnabled(false);
         btnEliminarDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarDiscoActionPerformed(evt);
@@ -325,6 +326,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
                     btnSeleccionar.setEnabled(false);
                     btnBuscar.setEnabled(false);
                     cbxDisco.setEnabled(true);
+                    btnEliminarDisco.setEnabled(true);
                     cargarDatosCombo();
 
                 } else {
@@ -343,6 +345,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
+        btnEliminarDisco.setEnabled(false);
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiscoActionPerformed
@@ -403,6 +406,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         txtNombreDisco.setText("");
         txtAnioLanzamiento.setText("");
         cbxDisco.removeAllItems();
+        btnEliminarDisco.setEnabled(false);
     }
 
     private void cargarDatosCombo() {

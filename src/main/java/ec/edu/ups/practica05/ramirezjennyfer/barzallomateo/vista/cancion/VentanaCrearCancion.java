@@ -197,26 +197,20 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel7)
                                             .addComponent(jLabel9))))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(173, 173, 173))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtCodigoCancion)
-                                .addContainerGap())))
+                        .addGap(0, 32, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(173, 196, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnRegistrarDisco)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtLetra)
-                            .addComponent(txtTitulo)
-                            .addComponent(txtDuracion))
-                        .addContainerGap())))
+                        .addComponent(btnRegistrarDisco)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtLetra)
+                    .addComponent(txtTitulo)
+                    .addComponent(txtDuracion)
+                    .addComponent(txtCodigoCancion))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,8 +270,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +297,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
 
             } else {
                 JOptionPane.showMessageDialog(this, "El compositor con el codigo " + codigo + " no ha sido encontrado!");
-                limpiarCamposCantante();
+                limpiarCamposCompositor();
             }
         } else {
             JOptionPane.showMessageDialog(this, "No se ha ingresado ningun codigo");
@@ -316,12 +309,13 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         Compositor compositor = controladorCompositor.buscarCompositor(codigo);
 
-        if (validarCamposDisco()) {
-            String nombreDisco = txtTitulo.getText();
-            int codigoDisco = Integer.parseInt(txtCodigoCancion.getText());
-            int anio = Integer.parseInt(txtLetra.getText());
-            controladorCompositor.agregarCancion(compositor, codigoDisco, nombreDisco, anio);
-            JOptionPane.showMessageDialog(this, "El disco " + nombreDisco + " a sido ingresado exitosamente :)");
+        if (validarCamposCancion()) {
+            String titulo = txtTitulo.getText();
+            int codigoCancion = Integer.parseInt(txtCodigoCancion.getText());
+            String letra = txtLetra.getText();
+            double duracion = Double.parseDouble(txtDuracion.getText());
+            controladorCompositor.agregarCancion(compositor, codigoCancion, titulo, letra, duracion);
+            JOptionPane.showMessageDialog(this, "La cancion " + titulo + " a sido ingresada exitosamente :)");
             cerrarPantalla();
         } else {
             JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
@@ -335,12 +329,12 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
             int codigoIngresado = Integer.parseInt(txtCodigo.getText());
             Compositor compositor = controladorCompositor.buscarCompositor(codigoIngresado);
 
-            if (cantante != null) {
-                if (cantante.getNombre().equals(txtNombre.getText()) && cantante.getApellido().equals(txtApellido.getText())) {
+            if (compositor != null) {
+                if (compositor.getNombre().equals(txtNombre.getText()) && compositor.getApellido().equals(txtApellido.getText())) {
                     txtCodigo.setEnabled(false);
                     btnCancelarSeleccion.setEnabled(true);
                     btnSeleccionar.setEnabled(false);
-                    enableDisco(true);
+                    enableCancion(true);
                     btnBuscar.setEnabled(false);
 
                 } else {
@@ -359,7 +353,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
-        enableDisco(false);
+        enableCancion(false);
         btnBuscar.setEnabled(true);
 
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
@@ -368,10 +362,11 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
 
-    private boolean validarCamposDisco() {
+    private boolean validarCamposCancion() {
         if (txtTitulo.getText().isEmpty()
                 || txtCodigoCancion.getText().isEmpty()
-                || txtLetra.getText().isEmpty()) {
+                || txtLetra.getText().isEmpty()
+                || txtDuracion.getText().isEmpty()) {
             return false;
         } else {
             return true;
@@ -379,34 +374,35 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
     }
 
     private void cerrarPantalla() {
-        limpiarCamposCantante();
-        limpiarCamposDisco();
-        enableDisco(false);
+        limpiarCamposCompositor();
+        limpiarCamposCancion();
+        enableCancion(false);
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(false);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
-        
-        
+
     }
 
-    private void limpiarCamposCantante() {
+    private void limpiarCamposCompositor() {
         txtCodigo.setText("");
         txtApellido.setText("");
         txtNombre.setText("");
         txtNumComposicion.setText("");
     }
 
-    private void limpiarCamposDisco() {
+    private void limpiarCamposCancion() {
         txtCodigoCancion.setText("");
         txtTitulo.setText("");
         txtLetra.setText("");
+        txtDuracion.setText("");
     }
 
-    private void enableDisco(boolean val) {
+    private void enableCancion(boolean val) {
         txtTitulo.setEnabled(val);
         txtCodigoCancion.setEnabled(val);
         txtLetra.setEnabled(val);
+        txtDuracion.setEnabled(val);
         btnRegistrarDisco.setEnabled(val);
     }
 

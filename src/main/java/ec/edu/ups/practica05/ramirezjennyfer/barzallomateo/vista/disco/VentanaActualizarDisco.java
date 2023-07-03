@@ -446,7 +446,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
     }
 
     private boolean validarCamposDisco() {
-        if (txtNombre.getText().isEmpty() || txtAnioLanzamiento.getText().isEmpty()) {
+        if (txtNombreDisco.getText().isEmpty() || txtAnioLanzamiento.getText().isEmpty()) {
             return false;
         } else {
             return true;

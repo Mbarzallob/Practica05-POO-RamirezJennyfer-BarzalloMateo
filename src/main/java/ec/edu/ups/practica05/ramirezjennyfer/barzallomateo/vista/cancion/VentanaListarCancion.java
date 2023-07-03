@@ -4,10 +4,9 @@
  */
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion;
 
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.*;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCompositor;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cancion;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Compositor;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,14 +17,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class VentanaListarCancion extends javax.swing.JInternalFrame {
 
-    private ControladorCantante controladorCantante;
+    private ControladorCompositor controladorCompositor;
 
     /**
      * Creates new form VentanaListarDisco
      */
-    public VentanaListarCancion(ControladorCantante controladorCantante) {
+    public VentanaListarCancion(ControladorCompositor controladorCompositor) {
         initComponents();
-        this.controladorCantante = controladorCantante;
+        this.controladorCompositor = controladorCompositor;
     }
 
     /**
@@ -43,18 +42,16 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        txtNombreArtistico = new javax.swing.JTextField();
-        txtGeneroMusical = new javax.swing.JTextField();
+        txtNumComposiciones = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnSeleccionar = new javax.swing.JButton();
         btnCancelarSeleccion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDisco = new javax.swing.JTable();
+        tblCancion = new javax.swing.JTable();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -87,17 +84,13 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Apellido");
 
-        jLabel8.setText("Nombre artistico");
-
-        jLabel10.setText("Genero musical");
+        jLabel8.setText("Numero de composiciones");
 
         txtNombre.setEnabled(false);
 
         txtApellido.setEnabled(false);
 
-        txtNombreArtistico.setEnabled(false);
-
-        txtGeneroMusical.setEnabled(false);
+        txtNumComposiciones.setEnabled(false);
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -129,15 +122,15 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        tblDisco.setModel(new javax.swing.table.DefaultTableModel(
+        tblCancion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Año de lanzamiento"
+                "Codigo", "Titulo", "Letra", "Duracion"
             }
         ));
-        jScrollPane1.setViewportView(tblDisco);
+        jScrollPane1.setViewportView(tblCancion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -156,26 +149,23 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel10))
+                                    .addComponent(jLabel8))
                                 .addGap(58, 58, 58)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnBuscar)
                                         .addGap(207, 207, 207)
                                         .addComponent(btnSalir))
-                                    .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNumComposiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                                             .addComponent(txtNombre)
-                                            .addComponent(txtApellido)
-                                            .addComponent(txtGeneroMusical))
+                                            .addComponent(txtApellido))
                                         .addGap(34, 34, 34)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnSeleccionar)
-                                            .addComponent(btnCancelarSeleccion))))))
-                        .addGap(122, 122, 122)))
+                                            .addComponent(btnCancelarSeleccion))))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(221, 221, 221))
@@ -185,7 +175,6 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,12 +192,8 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtNumComposiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscar)
                             .addComponent(btnSalir)))
@@ -218,7 +203,7 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,17 +231,16 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         if (!txtCodigo.getText().isEmpty()) {
             int codigo = Integer.parseInt(txtCodigo.getText());
-            Cantante cantante = controladorCantante.buscarCantante(codigo);
-            if (cantante != null) {
-                txtApellido.setText(cantante.getApellido());
-                txtGeneroMusical.setText(cantante.getGeneroMusical());
-                txtNombre.setText(cantante.getNombre());
-                txtNombreArtistico.setText(cantante.getNombreArtistico());
+            Compositor compositor = controladorCompositor.buscarCompositor(codigo);
+            if (compositor != null) {
+                txtApellido.setText(compositor.getApellido());
+                txtNombre.setText(compositor.getNombre());
+                txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
                 btnSeleccionar.setEnabled(true);
 
             } else {
                 JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
-                limpiarCamposCantante();
+                limpiarCamposCompositor();
             }
         } else {
             JOptionPane.showMessageDialog(this, "No se ha ingresado ningun codigo");
@@ -266,10 +250,10 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         if (!txtCodigo.getText().isEmpty()) {
             int codigoIngresado = Integer.parseInt(txtCodigo.getText());
-            Cantante cantante = controladorCantante.buscarCantante(codigoIngresado);
+            Compositor compositor = controladorCompositor.buscarCompositor(codigoIngresado);
 
-            if (cantante != null) {
-                if (cantante.getNombre().equals(txtNombre.getText()) && cantante.getApellido().equals(txtApellido.getText())) {
+            if (compositor != null) {
+                if (compositor.getNombre().equals(txtNombre.getText()) && compositor.getApellido().equals(txtApellido.getText())) {
                     txtCodigo.setEnabled(false);
                     btnCancelarSeleccion.setEnabled(true);
                     btnSeleccionar.setEnabled(false);
@@ -291,52 +275,52 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
-        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblCancion.getModel();
         modelo.setNumRows(0);
-        tblDisco.setModel(modelo);
+        tblCancion.setModel(modelo);
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
-    private void limpiarCamposCantante() {
+    private void limpiarCamposCompositor() {
         txtCodigo.setText("");
         txtApellido.setText("");
-        txtGeneroMusical.setText("");
         txtNombre.setText("");
-        txtNombreArtistico.setText("");
+        txtNumComposiciones.setText("");
     }
 
     private void cerrarPantalla() {
-        limpiarCamposCantante();
+        limpiarCamposCompositor();
 
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(false);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
-        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblCancion.getModel();
         modelo.setNumRows(0);
-        tblDisco.setModel(modelo);
+        tblCancion.setModel(modelo);
 
     }
 
     private void cargarTabla() {
         int codigo = Integer.parseInt(txtCodigo.getText());
-        Cantante cantante = controladorCantante.buscarCantante(codigo);
-        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        Compositor compositor = controladorCompositor.buscarCompositor(codigo);
+        DefaultTableModel modelo = (DefaultTableModel) tblCancion.getModel();
         modelo.setNumRows(0);
-        List<Disco> listaDisco = controladorCantante.listarDiscos(cantante);
-        if (!listaDisco.isEmpty()) {
-            for (Disco disco : listaDisco) {
-                String codigoDisco = String.valueOf(disco.getCodigo());
-                String nombreDisco = disco.getNombre();
-                String anioLanzamiento = String.valueOf(disco.getAnioDeLanzamiento());
-                Object[] rowData = {codigoDisco, nombreDisco, anioLanzamiento};
+        List<Cancion> listaCancion = controladorCompositor.listarCanciones(compositor);
+        if (!listaCancion.isEmpty()) {
+            for (Cancion cancion : listaCancion) {
+                String codigoCancion = String.valueOf(cancion.getCodigo());
+                String titulo = cancion.getTitulo();
+                String letra = cancion.getLetra();
+                String duracion = String.valueOf(cancion.getTiempoEnMinutos());
+                Object[] rowData = {codigoCancion, titulo, letra,duracion};
                 modelo.addRow(rowData);
             }
-            tblDisco.setModel(modelo);
+            tblCancion.setModel(modelo);
         } else {
-            JOptionPane.showMessageDialog(this, "El cantante " + cantante.getNombre() + " " + cantante.getApellido() + " no tiene discos registrados");
+            JOptionPane.showMessageDialog(this, "El compositor " + compositor.getNombre() + " " + compositor.getApellido() + " no tiene canciones registrados");
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -345,18 +329,16 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblDisco;
+    private javax.swing.JTable tblCancion;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtGeneroMusical;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreArtistico;
+    private javax.swing.JTextField txtNumComposiciones;
     // End of variables declaration//GEN-END:variables
 }

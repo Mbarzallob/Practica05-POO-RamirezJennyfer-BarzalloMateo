@@ -8,6 +8,11 @@ import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.Controlad
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.dao.CantanteDAO;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.dao.CompositorDAO;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.VentanaActualizarCancion;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.VentanaBuscarCancion;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.VentanaCrearCancion;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.VentanaEliminarCancion;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.VentanaListarCancion;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante.VentanaActualizarCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante.VentanaCrearCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cantante.VentanaBuscarCantante;
@@ -47,6 +52,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaActualizarDisco ventanaActualizarDisco;
     private VentanaEliminarDisco ventanaEliminarDisco;
     private VentanaListarDisco ventanaListarDisco;
+
+    private VentanaCrearCancion ventanaCrearCancion;
+    private VentanaBuscarCancion ventanaBuscarCancion;
+    private VentanaActualizarCancion ventanaActualizarCancion;
+    private VentanaEliminarCancion ventanaEliminarCancion;
+    private VentanaListarCancion ventanaListarCancion;
 
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
@@ -97,6 +108,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemActualizarCompositor = new javax.swing.JMenuItem();
         menuItemEliminarCompositor = new javax.swing.JMenuItem();
         menuItemListarCompositor = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menuItemRegistrarCancion = new javax.swing.JMenuItem();
+        menuItemBuscarCancion = new javax.swing.JMenuItem();
+        menuItemActualizarCancion = new javax.swing.JMenuItem();
+        menuItemEliminarCancion = new javax.swing.JMenuItem();
+        menuItemListarCancion = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -275,6 +292,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         editMenu.add(menuItemListarCompositor);
 
+        jMenu2.setText("Cancion");
+
+        menuItemRegistrarCancion.setText("Registrar cancion");
+        menuItemRegistrarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRegistrarCancionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemRegistrarCancion);
+
+        menuItemBuscarCancion.setText("Buscar cancion");
+        menuItemBuscarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemBuscarCancionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemBuscarCancion);
+
+        menuItemActualizarCancion.setText("Actualizar cancion");
+        menuItemActualizarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemActualizarCancionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemActualizarCancion);
+
+        menuItemEliminarCancion.setText("Eliminar cancion");
+        menuItemEliminarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEliminarCancionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemEliminarCancion);
+
+        menuItemListarCancion.setText("Listar cancion");
+        menuItemListarCancion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarCancionActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemListarCancion);
+
+        editMenu.add(jMenu2);
+
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
@@ -422,12 +483,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void menuItemListarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarDiscoActionPerformed
 
-         if (ventanaListarDisco == null) {
+        if (ventanaListarDisco == null) {
             ventanaListarDisco = new VentanaListarDisco(controladorCantante);
             desktopPane.add(ventanaListarDisco);
         }
         ventanaListarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemListarDiscoActionPerformed
+
+    private void menuItemRegistrarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCancionActionPerformed
+        if (ventanaCrearCancion == null) {
+            ventanaCrearCancion = new VentanaCrearCancion(controladorCompositor);
+            desktopPane.add(ventanaCrearCancion);
+        }
+        ventanaCrearCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemRegistrarCancionActionPerformed
+
+    private void menuItemBuscarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCancionActionPerformed
+        if (ventanaBuscarCancion == null) {
+            ventanaBuscarCancion = new VentanaBuscarCancion(controladorCompositor);
+            desktopPane.add(ventanaBuscarCancion);
+        }
+        ventanaBuscarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemBuscarCancionActionPerformed
+
+    private void menuItemActualizarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCancionActionPerformed
+        if (ventanaActualizarCancion == null) {
+            ventanaActualizarCancion = new VentanaActualizarCancion(controladorCompositor);
+            desktopPane.add(ventanaActualizarCancion);
+        }
+        ventanaActualizarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemActualizarCancionActionPerformed
+
+    private void menuItemEliminarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCancionActionPerformed
+        if (ventanaEliminarCancion == null) {
+            ventanaEliminarCancion = new VentanaEliminarCancion(controladorCompositor);
+            desktopPane.add(ventanaEliminarCancion);
+        }
+        ventanaEliminarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemEliminarCancionActionPerformed
+
+    private void menuItemListarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCancionActionPerformed
+        if (ventanaListarCancion == null) {
+            ventanaListarCancion = new VentanaListarCancion(controladorCompositor);
+            desktopPane.add(ventanaListarCancion);
+        }
+        ventanaListarCancion.setVisible(true);
+    }//GEN-LAST:event_menuItemListarCancionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,18 +578,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemMenuRegistrarDisco;
     private javax.swing.JMenuItem itemMenuVerCantante;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem menuItemActualizarCancion;
     private javax.swing.JMenuItem menuItemActualizarCantante;
     private javax.swing.JMenuItem menuItemActualizarCompositor;
     private javax.swing.JMenuItem menuItemActualizarDisco;
+    private javax.swing.JMenuItem menuItemBuscarCancion;
     private javax.swing.JMenuItem menuItemBuscarCompositor;
     private javax.swing.JMenuItem menuItemBuscarDisco;
+    private javax.swing.JMenuItem menuItemEliminarCancion;
     private javax.swing.JMenuItem menuItemEliminarCompositor;
     private javax.swing.JMenuItem menuItemEliminarDisco;
+    private javax.swing.JMenuItem menuItemListarCancion;
     private javax.swing.JMenuItem menuItemListarCantante;
     private javax.swing.JMenuItem menuItemListarCompositor;
     private javax.swing.JMenuItem menuItemListarDisco;
+    private javax.swing.JMenuItem menuItemRegistrarCancion;
     private javax.swing.JMenuItem menuItemRegistrarCompositor;
     // End of variables declaration//GEN-END:variables
 
