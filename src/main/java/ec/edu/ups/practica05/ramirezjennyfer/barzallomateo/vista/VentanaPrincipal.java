@@ -33,6 +33,8 @@ import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaBu
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaCrearDisco;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaEliminarDisco;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco.VentanaListarDisco;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -76,6 +78,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private CantanteDAO cantanteDAO;
     private CompositorDAO compositorDAO;
     
+    private Locale localizacion;
+    private ResourceBundle mensajes;
    
     /**
      * Creates new form VentanaPrincipal
@@ -86,7 +90,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCantante = new ControladorCantante(cantanteDAO);
         compositorDAO = new CompositorDAO();
         controladorCompositor = new ControladorCompositor(compositorDAO, cantanteDAO);
+        localizacion = Locale.getDefault();                
+        cambiarIdioma();
 
+    }
+    
+    public void cambiarIdioma () {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        
+        
+        if(ventanaCrearCantante != null){
+            //ventanaCrearCantante.cambiarIdioma(localizacion);
+        }
     }
 
     //System.exit(0);
@@ -446,7 +461,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        helpMenu.setText("Opciones");
 
         contentMenuItem.setMnemonic('c');
         contentMenuItem.setText("Contents");
