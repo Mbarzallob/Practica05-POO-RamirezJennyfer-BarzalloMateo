@@ -106,22 +106,35 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Datos del cantante");
+        jPanel1.setBackground(new java.awt.Color(255, 204, 153));
 
+        jLabel1.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel1.setText("Datos del Compositor");
+
+        jLabel2.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel2.setText("Codigo");
 
+        jLabel3.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel3.setText("Nombre");
 
+        jLabel4.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel4.setText("Apellido");
 
+        jLabel8.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel8.setText("Numero de composiciones");
 
+        txtCodigo.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
+
+        txtNombre.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombre.setEnabled(false);
 
+        txtApellido.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtApellido.setEnabled(false);
 
+        txtNumComposiciones.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumComposiciones.setEnabled(false);
 
+        btnSalir.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +142,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        btnBuscar.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,18 +150,25 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Registrar disco");
+        jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel5.setText("Buscar CLiente");
 
+        jLabel6.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel6.setText("Codigo");
 
+        jLabel7.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel7.setText("Nombre");
 
+        jLabel9.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel9.setText("Apellido");
 
+        txtNombreCantante.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombreCantante.setEnabled(false);
 
+        txtApellidoCantante.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtApellidoCantante.setEnabled(false);
 
+        btnSeleccionar.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.setEnabled(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +177,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        btnCancelarSeleccion.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnCancelarSeleccion.setText("Cancelar seleccion");
         btnCancelarSeleccion.setEnabled(false);
         btnCancelarSeleccion.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +186,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        cbxCliente.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         cbxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clientes" }));
         cbxCliente.setEnabled(false);
         cbxCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -172,40 +195,58 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        txtEdadCantante.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtEdadCantante.setEnabled(false);
 
+        jLabel10.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel10.setText("Edad");
 
+        jLabel11.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel11.setText("Nacionalidad");
 
+        txtNacionalidad.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNacionalidad.setEnabled(false);
 
+        jLabel12.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel12.setText("Salario");
 
+        txtSalario.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtSalario.setEnabled(false);
 
+        jLabel13.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel13.setText("Nombre artistico");
 
+        txtNombreArtistico.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombreArtistico.setEnabled(false);
 
+        jLabel14.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel14.setText("Genero musical");
 
+        txtGeneroMusical.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtGeneroMusical.setEnabled(false);
 
+        jLabel15.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel15.setText("Numero de sencillos");
 
+        txtNumSencillos.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumSencillos.setEnabled(false);
 
+        jLabel16.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel16.setText("Numero de conciertos");
 
+        txtNumConciertos.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumConciertos.setEnabled(false);
 
+        jLabel17.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel17.setText("Numero de giras");
 
+        txtNumGiras.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumGiras.setEnabled(false);
 
+        jLabel18.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel18.setText("Discos");
 
+        cbxDiscos.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         cbxDiscos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discos" }));
         cbxDiscos.setEnabled(false);
 
@@ -220,7 +261,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
-                        .addGap(174, 174, 174))
+                        .addGap(113, 113, 113))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +271,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel8))
-                                .addGap(58, 58, 58)
+                                .addGap(29, 29, 29)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -286,7 +327,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel6)
                                         .addGap(108, 108, 108)
                                         .addComponent(cbxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(257, 257, 257))
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +343,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSeleccionar))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -376,9 +417,8 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

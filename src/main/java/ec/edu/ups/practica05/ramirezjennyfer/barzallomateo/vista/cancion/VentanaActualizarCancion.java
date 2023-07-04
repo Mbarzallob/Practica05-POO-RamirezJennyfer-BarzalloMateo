@@ -61,6 +61,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         txtDuracion = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 204));
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
@@ -84,22 +85,35 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Datos del cantante");
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
+        jLabel1.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel1.setText("Datos del Compositor");
+
+        jLabel2.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel2.setText("Codigo");
 
+        jLabel3.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel3.setText("Nombre");
 
+        jLabel4.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel4.setText("Apellido");
 
+        jLabel8.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel8.setText("Numero de composiciones");
 
+        txtCodigo.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
+
+        txtNombre.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombre.setEnabled(false);
 
+        txtApellido.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtApellido.setEnabled(false);
 
+        txtNumComposiciones.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumComposiciones.setEnabled(false);
 
+        btnSalir.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +121,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
+        btnBuscar.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,18 +129,25 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Registrar disco");
+        jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel5.setText("Registrar Cancion");
 
+        jLabel6.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel6.setText("Codigo");
 
+        jLabel7.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel7.setText("Titulo");
 
+        jLabel9.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel9.setText("Letra");
 
+        txtTitulo.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtTitulo.setEnabled(false);
 
+        txtLetra.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtLetra.setEnabled(false);
 
+        btnSeleccionar.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.setEnabled(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +156,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
+        btnCancelarSeleccion.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnCancelarSeleccion.setText("Cancelar seleccion");
         btnCancelarSeleccion.setEnabled(false);
         btnCancelarSeleccion.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +165,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
+        cbxCancion.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         cbxCancion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canciones" }));
         cbxCancion.setEnabled(false);
         cbxCancion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,6 +179,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
+        btnActualizarCancion.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnActualizarCancion.setText("Actualizar cancion");
         btnActualizarCancion.setEnabled(false);
         btnActualizarCancion.addActionListener(new java.awt.event.ActionListener() {
@@ -163,8 +188,10 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             }
         });
 
+        txtDuracion.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtDuracion.setEnabled(false);
 
+        jLabel10.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel10.setText("Duracion");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -185,7 +212,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel8))
-                                .addGap(58, 58, 58)
+                                .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnBuscar)
                                     .addComponent(txtNumComposiciones, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,11 +223,11 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                                             .addComponent(txtApellido))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
+                                                .addGap(22, 22, 22)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(btnSeleccionar)
                                                     .addComponent(btnCancelarSeleccion))
-                                                .addGap(54, 54, 54)
+                                                .addGap(38, 38, 38)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel6)
                                                     .addComponent(jLabel7)
@@ -211,7 +238,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                                                 .addComponent(btnSalir)))))))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addGap(173, 173, 173))
                     .addGroup(jPanel1Layout.createSequentialGroup()

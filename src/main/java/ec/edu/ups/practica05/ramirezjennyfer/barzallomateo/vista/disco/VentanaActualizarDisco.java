@@ -59,10 +59,8 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         btnCancelarSeleccion = new javax.swing.JButton();
         cbxDisco = new javax.swing.JComboBox<>();
         btnActualizarDisco = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -125,7 +123,6 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
 
         btnSalir.setBackground(new java.awt.Color(255, 204, 204));
         btnSalir.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +132,6 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
 
         btnBuscar.setBackground(new java.awt.Color(204, 255, 255));
         btnBuscar.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +193,6 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
 
         btnActualizarDisco.setBackground(new java.awt.Color(204, 255, 204));
         btnActualizarDisco.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnActualizarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoreg.png"))); // NOI18N
         btnActualizarDisco.setText("Actualizar disco");
         btnActualizarDisco.setEnabled(false);
         btnActualizarDisco.addActionListener(new java.awt.event.ActionListener() {
@@ -206,15 +201,11 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cantante.png"))); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
         jLabel1.setText("Datos del cantante");
 
         jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
         jLabel5.setText("Actualizar disco");
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -257,16 +248,12 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
                             .addComponent(txtNombreDisco)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnActualizarDisco)
-                                .addGap(0, 72, Short.MAX_VALUE))
+                                .addGap(0, 102, Short.MAX_VALUE))
                             .addComponent(cbxDisco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
+                        .addGap(158, 158, 158)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addGap(30, 30, 30)))
                 .addGap(51, 51, 51))
@@ -278,16 +265,11 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel1))))
-                .addGap(39, 39, 39)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel1))
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -328,7 +310,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
                             .addComponent(txtGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addComponent(btnBuscar)
-                        .addContainerGap(85, Short.MAX_VALUE))
+                        .addContainerGap(89, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(btnActualizarDisco)
@@ -516,8 +498,6 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbxDisco;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
