@@ -168,7 +168,7 @@ public class VentanaCrearCantante extends javax.swing.JInternalFrame {
 
         btnSalir.setBackground(new java.awt.Color(255, 204, 204));
         btnSalir.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exit_icon_143788 (1).png"))); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
