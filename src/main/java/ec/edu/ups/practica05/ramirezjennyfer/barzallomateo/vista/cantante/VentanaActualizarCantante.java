@@ -188,6 +188,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         btnActualizarCantante.setBackground(new java.awt.Color(204, 255, 204));
         btnActualizarCantante.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         btnActualizarCantante.setText("Actualizar");
+        btnActualizarCantante.setEnabled(false);
         btnActualizarCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarCantanteActionPerformed(evt);
@@ -327,6 +328,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameClosing
 
     private void btnActualizarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCantanteActionPerformed
+
         if (camposObligatorios()) {
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -340,7 +342,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             int numeroConciertos = Integer.parseInt(txtNumConciertos.getText());
             int numeroGiras = Integer.parseInt(txtNumGiras.getText());
             Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, nacionalidad, salario);
-            
+
             if (controladorCantante.actualizarCantante(cantante)) {
 
                 JOptionPane.showMessageDialog(this, "El cantante ha sido actualizado exitosamente! :)");
@@ -355,29 +357,35 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarCantanteActionPerformed
 
     private void btnBuscarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCantanteActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Cantante cantante = controladorCantante.buscarCantante(codigo);
-        if (cantante != null) {
-            txtApellido.setText(cantante.getApellido());
-            txtEdad.setText(String.valueOf(cantante.getEdad()));
-            txtGeneroMusical.setText(cantante.getGeneroMusical());
-            txtNacionalidad.setText(cantante.getNacionalidad());
-            txtNombre.setText(cantante.getNombre());
-            txtNombreArtistico.setText(cantante.getNombreArtistico());
-            txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
-            txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
-            txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
-            txtSalario.setText(String.valueOf(cantante.getSalario()));
-            cambiarEstado(true);
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Cantante cantante = controladorCantante.buscarCantante(codigo);
+            if (cantante != null) {
+                txtApellido.setText(cantante.getApellido());
+                txtEdad.setText(String.valueOf(cantante.getEdad()));
+                txtGeneroMusical.setText(cantante.getGeneroMusical());
+                txtNacionalidad.setText(cantante.getNacionalidad());
+                txtNombre.setText(cantante.getNombre());
+                txtNombreArtistico.setText(cantante.getNombreArtistico());
+                txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
+                txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
+                txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
+                txtSalario.setText(String.valueOf(cantante.getSalario()));
+                cambiarEstado(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
+                limpiarCampos();
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
-            limpiarCampos();
+            JOptionPane.showMessageDialog(this, "Ingrese un codigo");
+
         }
     }//GEN-LAST:event_btnBuscarCantanteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.setVisible(false);
         limpiarCampos();
+        cambiarEstado(false);
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtGeneroMusicalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroMusicalActionPerformed
@@ -413,6 +421,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         txtNumGiras.setEnabled(ena);
         txtNumSencillos.setEnabled(ena);
         txtSalario.setEnabled(ena);
+        btnActualizarCantante.setEnabled(ena);
     }
 
     private boolean camposObligatorios() {

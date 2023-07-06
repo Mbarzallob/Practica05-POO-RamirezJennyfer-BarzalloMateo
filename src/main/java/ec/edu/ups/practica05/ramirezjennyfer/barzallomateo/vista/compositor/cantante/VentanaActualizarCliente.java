@@ -237,17 +237,22 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
             Compositor compositor = cargarCompositorSeleccionado();
             Cantante cantanteNuevo = cargarCantanteSeleccionado();
             Cantante cantanteViejo = cargarClienteSeleccionado();
-            controladorCompositor.actualizarCliente(compositor, cantanteViejo, cantanteNuevo);
-            JOptionPane.showMessageDialog(this, "Se ha actualizado el cliente");
+            Cantante validacion = controladorCompositor.buscarCantante(compositor, cantanteNuevo.getCodigo());
+            if (validacion == null) {
+                controladorCompositor.actualizarCliente(compositor, cantanteViejo, cantanteNuevo);
+                JOptionPane.showMessageDialog(this, "Se ha actualizado el cliente");
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante ya es cliente del compositor");
+            }
 
         } else {
             if (tblCompositor.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningun compositor");
             } else if (tblCantante.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningun cantante");
-            }else if(tblClientes.getSelectedRow()==-1){
+            } else if (tblClientes.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningun cliente");
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(this, "No se ha ingresado el cantante");
             }
         }

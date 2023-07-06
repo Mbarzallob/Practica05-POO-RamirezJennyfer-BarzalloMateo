@@ -141,22 +141,26 @@ public class VentanaEliminarCantante extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Cantante cantante = controladorCantante.buscarCantante(codigo);
-        if (cantante != null) {
-            int respuesta = JOptionPane.showConfirmDialog(this, "¿Estas seguro que deseas eliminar al cantante: " + cantante.getNombreArtistico() + "?");
-            if (respuesta == JOptionPane.YES_OPTION) {
-                if (controladorCantante.eliminarCantante(cantante)) {
-                    JOptionPane.showMessageDialog(this, "El cantante ha sido eliminado");
-                    txtCodigo.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(this, "El cantante no ha sido eliminado");
-                    txtCodigo.setText("");
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Cantante cantante = controladorCantante.buscarCantante(codigo);
+            if (cantante != null) {
+                int respuesta = JOptionPane.showConfirmDialog(this, "¿Estas seguro que deseas eliminar al cantante: " + cantante.getNombreArtistico() + "?");
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    if (controladorCantante.eliminarCantante(cantante)) {
+                        JOptionPane.showMessageDialog(this, "El cantante ha sido eliminado");
+                        txtCodigo.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El cantante no ha sido eliminado");
+                        txtCodigo.setText("");
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante no ha sido encontrado");
+                txtCodigo.setText("");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "El cantante no ha sido encontrado");
-            txtCodigo.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese un codigo");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

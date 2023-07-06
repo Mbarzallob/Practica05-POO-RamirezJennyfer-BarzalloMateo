@@ -48,7 +48,13 @@ public class ControladorCompositor {
     public boolean actualizarCompositor(Compositor compositor) {
         Compositor compositorEncontrado = this.buscarCompositor(compositor.getCodigo());
         if (compositorEncontrado != null) {
-            compositorDAO.update(compositor);
+            compositorEncontrado.setNombre(compositor.getNombre());
+            compositorEncontrado.setApellido(compositor.getApellido());
+            compositorEncontrado.setEdad(compositor.getEdad());
+            compositorEncontrado.setNacionalidad(compositor.getNacionalidad());
+            compositorEncontrado.setNumeroDeComposiciones(compositor.getNumeroDeComposiciones());
+            compositorEncontrado.setSalario(compositor.getSalario());
+            compositorDAO.update(compositorEncontrado);
             return true;
         } else {
             return false;

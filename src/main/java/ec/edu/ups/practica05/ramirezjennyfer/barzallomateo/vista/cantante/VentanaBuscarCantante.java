@@ -310,23 +310,27 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Cantante cantante = controladorCantante.buscarCantante(codigo);
-        if (cantante != null) {
-            txtApellido.setText(cantante.getApellido());
-            txtEdad.setText(String.valueOf(cantante.getEdad()));
-            txtGeneroMusical.setText(cantante.getGeneroMusical());
-            txtNacionalidad.setText(cantante.getNacionalidad());
-            txtNombre.setText(cantante.getNombre());
-            txtNombreArtistico.setText(cantante.getNombreArtistico());
-            txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
-            txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
-            txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
-            txtSalario.setText(String.valueOf(cantante.calcularSalario()));
-            cargarDiscos(cantante);
-        } else {
-            JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
-            limpiarCampos();
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Cantante cantante = controladorCantante.buscarCantante(codigo);
+            if (cantante != null) {
+                txtApellido.setText(cantante.getApellido());
+                txtEdad.setText(String.valueOf(cantante.getEdad()));
+                txtGeneroMusical.setText(cantante.getGeneroMusical());
+                txtNacionalidad.setText(cantante.getNacionalidad());
+                txtNombre.setText(cantante.getNombre());
+                txtNombreArtistico.setText(cantante.getNombreArtistico());
+                txtNumConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
+                txtNumGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
+                txtNumSencillos.setText(String.valueOf(cantante.getNumeroDeSencillos()));
+                txtSalario.setText(String.valueOf(cantante.calcularSalario()));
+                cargarDiscos(cantante);
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido encontrado!");
+                limpiarCampos();
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese un codigo");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -348,28 +352,28 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
         txtNombre.setText("");
         txtNombreArtistico.setText("");
         txtNumConciertos.setText("");
-        txtNumGiras.setText(""); 
+        txtNumGiras.setText("");
         txtNumSencillos.setText("");
         txtSalario.setText("");
         DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel) this.cbxDiscos.getModel();
         modelo.removeAllElements();
     }
-    
-    private void cargarDiscos(Cantante cantante){
+
+    private void cargarDiscos(Cantante cantante) {
         DefaultComboBoxModel<String> modelo = (DefaultComboBoxModel) this.cbxDiscos.getModel();
         modelo.removeAllElements();
-        
-        List<Disco> listaDiscos= cantante.listarDiscos();
-        if(!listaDiscos.isEmpty()){
+
+        List<Disco> listaDiscos = cantante.listarDiscos();
+        if (!listaDiscos.isEmpty()) {
             for (Disco disco : listaDiscos) {
                 modelo.addElement(disco.getNombre());
             }
-        }else{
+        } else {
             modelo.addElement("No tiene discos");
         }
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnSalir;

@@ -140,22 +140,26 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Compositor compositor = controladorCompositor.buscarCompositor(codigo);
-        if (compositor != null) {
-            int respuesta = JOptionPane.showConfirmDialog(this, "¿Estas seguro que deseas eliminar al compositor: " + compositor.getNombre() + " " + compositor.getApellido() + "?");
-            if (respuesta == JOptionPane.YES_OPTION) {
-                if (controladorCompositor.eliminarCompositor(compositor)) {
-                    JOptionPane.showMessageDialog(this, "El compositor ha sido eliminado");
-                    txtCodigo.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(this, "El compositor no ha sido eliminado");
-                    txtCodigo.setText("");
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Compositor compositor = controladorCompositor.buscarCompositor(codigo);
+            if (compositor != null) {
+                int respuesta = JOptionPane.showConfirmDialog(this, "¿Estas seguro que deseas eliminar al compositor: " + compositor.getNombre() + " " + compositor.getApellido() + "?");
+                if (respuesta == JOptionPane.YES_OPTION) {
+                    if (controladorCompositor.eliminarCompositor(compositor)) {
+                        JOptionPane.showMessageDialog(this, "El compositor ha sido eliminado");
+                        txtCodigo.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "El compositor no ha sido eliminado");
+                        txtCodigo.setText("");
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "El compositor no ha sido encontrado");
+                txtCodigo.setText("");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "El cantante no ha sido encontrado");
-            txtCodigo.setText("");
+            JOptionPane.showMessageDialog(this, "Ingrese un codigo");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 

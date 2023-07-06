@@ -163,6 +163,7 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
                 "Codigo", "Nombre", "Año de lanzamiento"
             }
         ));
+        tblDisco.setEnabled(false);
         jScrollPane1.setViewportView(tblDisco);
 
         jLabel1.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N

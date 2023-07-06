@@ -169,8 +169,16 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         });
 
         cbxDisco.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        cbxDisco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Discos" }));
         cbxDisco.setEnabled(false);
+        cbxDisco.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                cbxDiscoPopupMenuWillBecomeVisible(evt);
+            }
+        });
         cbxDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDiscoActionPerformed(evt);
@@ -346,7 +354,6 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
                     btnBuscar.setEnabled(false);
                     cbxDisco.setEnabled(true);
                     cargarDatosCombo();
-
                 } else {
                     JOptionPane.showMessageDialog(this, "El código ha sido cambiado");
                 }
@@ -359,23 +366,42 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnCancelarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarSeleccionActionPerformed
+
         txtCodigo.setEnabled(true);
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
+        cbxDisco.setEnabled(false);
+        limpiarCamposDisco();
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiscoActionPerformed
         if (cbxDisco.getSelectedItem() != null) {
             Disco disco = (Disco) cbxDisco.getSelectedItem();
+            txtNombreDisco.setText(String.valueOf(disco.getNombre()));
             txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
-            txtNombreDisco.setText(disco.getNombre());
+
         }
     }//GEN-LAST:event_cbxDiscoActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
+
+    private void cbxDiscoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbxDiscoPopupMenuWillBecomeVisible
+
+//        if ((cbxDisco.getItemCount() == 0)) {
+//
+//            cargarDatosCombo();
+//        } else {
+//
+//            if (cbxDisco.getSelectedItem() != null) {
+//                Disco disco = (Disco) cbxDisco.getSelectedItem();
+//                txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
+//                txtNombreDisco.setText(disco.getNombre());
+//            }
+//        }
+    }//GEN-LAST:event_cbxDiscoPopupMenuWillBecomeVisible
 
     private void cerrarPantalla() {
         limpiarCamposCantante();
@@ -400,6 +426,7 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
     private void limpiarCamposDisco() {
         txtNombreDisco.setText("");
         txtAnioLanzamiento.setText("");
+        cbxDisco.removeAllItems();
     }
 
     private void cargarDatosCombo() {
@@ -407,13 +434,16 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
         Cantante cantante = this.controladorCantante.buscarCantante(Integer.parseInt(txtCodigo.getText()));
         modelo.removeAllElements();
         List<Disco> listaDiscos = cantante.listarDiscos();
-
-        for (Disco disco : listaDiscos) {
-            modelo.addElement(disco);
+        if (!listaDiscos.isEmpty()) {
+            for (Disco disco : listaDiscos) {
+                modelo.addElement(disco);
+            }
+            Disco disco = (Disco) modelo.getSelectedItem();
+            txtNombreDisco.setText(disco.getNombre());
+            txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
+        } else {
+            JOptionPane.showMessageDialog(this, "El cantante no tiene discos");
         }
-        Disco disco = (Disco) modelo.getSelectedItem();
-        txtNombreDisco.setText(disco.getNombre());
-        txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
     }
 
 

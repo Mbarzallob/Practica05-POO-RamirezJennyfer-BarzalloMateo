@@ -423,7 +423,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarDiscoActionPerformed
 
     private void cbxDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiscoActionPerformed
-         if (cbxDisco.getSelectedItem() != null) {
+        if (cbxDisco.getSelectedItem() != null) {
             Disco disco = (Disco) cbxDisco.getSelectedItem();
             txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
             txtNombreDisco.setText(disco.getNombre());
@@ -466,13 +466,18 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         Cantante cantante = this.controladorCantante.buscarCantante(Integer.parseInt(txtCodigo.getText()));
         modelo.removeAllElements();
         List<Disco> listaDiscos = cantante.listarDiscos();
-
-        for (Disco disco : listaDiscos) {
-            modelo.addElement(disco);
+        if (!listaDiscos.isEmpty()) {
+            for (Disco disco : listaDiscos) {
+                modelo.addElement(disco);
+            }
+            Disco disco = (Disco) modelo.getSelectedItem();
+            txtNombreDisco.setText(disco.getNombre());
+            txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
+            enableDisco(true);
+        }else{
+            enableDisco(false);
+            JOptionPane.showMessageDialog(this, "El cantante no tiene discos");
         }
-        Disco disco = (Disco) modelo.getSelectedItem();
-        txtNombreDisco.setText(disco.getNombre());
-        txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
     }
 
     private void enableDisco(boolean val) {

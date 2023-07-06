@@ -395,6 +395,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
         btnEliminarDisco.setEnabled(false);
+        cbxDisco.setEnabled(false);
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiscoActionPerformed

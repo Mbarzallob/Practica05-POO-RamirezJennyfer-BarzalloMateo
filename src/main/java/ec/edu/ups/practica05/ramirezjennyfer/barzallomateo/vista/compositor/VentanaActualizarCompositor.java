@@ -18,8 +18,7 @@ import javax.swing.JOptionPane;
 public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
 
     private ControladorCompositor controladorCompositor;
-    private List<Cantante> auxCantante;
-    private List<Cancion> auxCancion;
+
     /**
      * Creates new form VentanaActualizarCompositor
      */
@@ -258,6 +257,7 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnActualizarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCompositorActionPerformed
+
         if (camposObligatorios()) {
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -265,16 +265,11 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
             int edad = Integer.parseInt(txtEdad.getText());
             String nacionalidad = txtNacionalidad.getText();
             double salario = Double.parseDouble(txtSalario.getText());
-            
+
             int numeroComposiciones = Integer.parseInt(txtNumComposiciones.getText());
-            
+
             Compositor compositor = new Compositor(numeroComposiciones, codigo, nombre, apellido, edad, nacionalidad, salario);
-            for (Cancion cancion : auxCancion) {
-                compositor.agregarCancion(cancion.getCodigo(), cancion.getTitulo(), cancion.getLetra(), cancion.getTiempoEnMinutos());
-            }
-            for (Cantante cantante : auxCantante) {
-                compositor.agregarCliente(cantante);
-            }
+
             if (controladorCompositor.actualizarCompositor(compositor)) {
 
                 JOptionPane.showMessageDialog(this, "El compositor ha sido actualizado exitosamente! :)");
@@ -289,22 +284,25 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnActualizarCompositorActionPerformed
 
     private void btnBuscarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCompositorActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Compositor compositor = controladorCompositor.buscarCompositor(codigo);
-        if (compositor != null) {
-            txtApellido.setText(compositor.getApellido());
-            txtEdad.setText(String.valueOf(compositor.getEdad()));
-            txtNacionalidad.setText(compositor.getNacionalidad());
-            txtNombre.setText(compositor.getNombre());
-            
-            txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
-            txtSalario.setText(String.valueOf(compositor.getSalario()));
-            cambiarEstado(true);
-            auxCancion = compositor.listarCanciones();
-            auxCantante = compositor.listarCantantes();
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Compositor compositor = controladorCompositor.buscarCompositor(codigo);
+            if (compositor != null) {
+                txtApellido.setText(compositor.getApellido());
+                txtEdad.setText(String.valueOf(compositor.getEdad()));
+                txtNacionalidad.setText(compositor.getNacionalidad());
+                txtNombre.setText(compositor.getNombre());
+
+                txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
+                txtSalario.setText(String.valueOf(compositor.getSalario()));
+                cambiarEstado(true);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "El compositor con el codigo " + codigo + " no ha sido encontrado!");
+                limpiarCampos();
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "El compositor con el codigo " + codigo + " no ha sido encontrado!");
-            limpiarCampos();
+             JOptionPane.showMessageDialog(this, "Ingrese un codigo");
         }
     }//GEN-LAST:event_btnBuscarCompositorActionPerformed
 

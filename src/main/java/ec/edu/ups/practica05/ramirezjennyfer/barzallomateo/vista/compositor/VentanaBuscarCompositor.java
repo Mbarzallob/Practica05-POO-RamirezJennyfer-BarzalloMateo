@@ -117,29 +117,29 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             }
         });
 
-        txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombre.setToolTipText("Datos del Compositor");
+        txtNombre.setEnabled(false);
 
-        txtApellido.setEditable(false);
         txtApellido.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtApellido.setToolTipText("Datos del Compositor");
+        txtApellido.setEnabled(false);
 
-        txtEdad.setEditable(false);
         txtEdad.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtEdad.setToolTipText("Datos del Compositor");
+        txtEdad.setEnabled(false);
 
-        txtNacionalidad.setEditable(false);
         txtNacionalidad.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNacionalidad.setToolTipText("Datos del Compositor");
+        txtNacionalidad.setEnabled(false);
 
-        txtSalario.setEditable(false);
         txtSalario.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtSalario.setToolTipText("Datos del Compositor");
+        txtSalario.setEnabled(false);
 
-        txtNumComposiciones.setEditable(false);
         txtNumComposiciones.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNumComposiciones.setToolTipText("Datos del Compositor");
+        txtNumComposiciones.setEnabled(false);
 
         btnSalir.setBackground(new java.awt.Color(255, 204, 204));
         btnSalir.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
@@ -279,21 +279,25 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        Compositor compositor = controladorCompositor.buscarCompositor(codigo);
-        if (compositor != null) {
-            txtApellido.setText(compositor.getApellido());
-            txtEdad.setText(String.valueOf(compositor.getEdad()));
-            txtNacionalidad.setText(compositor.getNacionalidad());
-            txtNombre.setText(compositor.getNombre());
+        if (!txtCodigo.getText().isEmpty()) {
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            Compositor compositor = controladorCompositor.buscarCompositor(codigo);
+            if (compositor != null) {
+                txtApellido.setText(compositor.getApellido());
+                txtEdad.setText(String.valueOf(compositor.getEdad()));
+                txtNacionalidad.setText(compositor.getNacionalidad());
+                txtNombre.setText(compositor.getNombre());
 
-            txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
-            txtSalario.setText(String.valueOf(compositor.getSalario()));
-            cargarCanciones(compositor);
-            cargarCantantes(compositor);
-        } else {
-            JOptionPane.showMessageDialog(this, "El compositor con el codigo " + codigo + " no ha sido encontrado!");
-            limpiarCampos();
+                txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
+                txtSalario.setText(String.valueOf(compositor.getSalario()));
+                cargarCanciones(compositor);
+                cargarCantantes(compositor);
+            } else {
+                JOptionPane.showMessageDialog(this, "El compositor con el codigo " + codigo + " no ha sido encontrado!");
+                limpiarCampos();
+            }
+        } else{
+            JOptionPane.showMessageDialog(this, "Ingrese un codigo");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 

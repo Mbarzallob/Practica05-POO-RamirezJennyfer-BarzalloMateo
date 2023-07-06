@@ -6,6 +6,7 @@ package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.disco;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
 import javax.swing.JOptionPane;
 
 /**
@@ -368,10 +369,16 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         if (validarCamposDisco()) {
             String nombreDisco = txtNombreDisco.getText();
             int codigoDisco = Integer.parseInt(txtCodigoDisco.getText());
-            int anio = Integer.parseInt(txtAnioLanzamiento.getText());
-            controladorCantante.ingresarDisco(cantante, codigoDisco, nombreDisco, anio);
-            JOptionPane.showMessageDialog(this, "El disco " + nombreDisco + " a sido ingresado exitosamente :)");
-            cerrarPantalla();
+            Disco discoValidacion = controladorCantante.buscarDisco(cantante, codigoDisco);
+            if (discoValidacion == null) {
+                int anio = Integer.parseInt(txtAnioLanzamiento.getText());
+                controladorCantante.ingresarDisco(cantante, codigoDisco, nombreDisco, anio);
+                JOptionPane.showMessageDialog(this, "El disco " + nombreDisco + " a sido ingresado exitosamente :)");
+                cerrarPantalla();
+            } else {
+                JOptionPane.showMessageDialog(this, "El disco con el codigo " + codigoDisco + " ya existe :(");
+            }
+
         } else {
             JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
         }
@@ -439,8 +446,7 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         btnSeleccionar.setEnabled(false);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
-        
-        
+
     }
 
     private void limpiarCamposCantante() {

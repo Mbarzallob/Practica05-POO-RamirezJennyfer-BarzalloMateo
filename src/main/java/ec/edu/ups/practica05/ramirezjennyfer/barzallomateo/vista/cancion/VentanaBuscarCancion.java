@@ -362,6 +362,8 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         btnSeleccionar.setEnabled(true);
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
+        cbxCancion.setEnabled(false);
+        limpiarCamposCancion();
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCancionActionPerformed

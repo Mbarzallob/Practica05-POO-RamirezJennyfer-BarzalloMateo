@@ -380,6 +380,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
         enableCancion(false);
+        limpiarCamposCancion();
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxCancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxCancionMouseClicked

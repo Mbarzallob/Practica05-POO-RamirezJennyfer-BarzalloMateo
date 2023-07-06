@@ -60,7 +60,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameClosing(evt);
             }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -74,7 +73,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 153));
 
-        tblCompositor.setAutoCreateColumnsFromModel(false);
         tblCompositor.setBackground(new java.awt.Color(255, 204, 102));
         tblCompositor.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         tblCompositor.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,7 +93,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tblCompositor);
 
-        tblCantante.setAutoCreateColumnsFromModel(false);
         tblCantante.setBackground(new java.awt.Color(255, 204, 102));
         tblCantante.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         tblCantante.setModel(new javax.swing.table.DefaultTableModel(
@@ -193,7 +190,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        salir();
+
         this.setVisible(false);
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -202,9 +199,19 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         if (comprobarSeleccion()) {
             Compositor compositor = cargarCompositorSeleccionado();
             Cantante cantante = cargarCantanteSeleccionado();
-            controladorCompositor.agregarCliente(compositor, cantante);
-            JOptionPane.showMessageDialog(this, "Se ha ingresado el cliente");
 
+            int fila = tblCantante.getSelectedRow();
+            int codigo = Integer.parseInt(tblCantante.getValueAt(fila, 0).toString());
+            Cantante cantanteValidacion = controladorCompositor.buscarCantante(compositor, codigo);
+            if (cantanteValidacion == null) {
+                controladorCompositor.agregarCliente(compositor, cantante);
+                JOptionPane.showMessageDialog(this, "Se ha ingresado el cliente");
+                tblCantante.clearSelection();
+                tblCompositor.clearSelection();
+            } else {
+                JOptionPane.showMessageDialog(this, "El cantante ya es cliente del compositor seleccionado");
+                tblCantante.clearSelection();
+            }
         } else {
             if (tblCompositor.getSelectedRow() == -1) {
                 JOptionPane.showMessageDialog(this, "No se ha seleccionado ningun compositor");
@@ -215,10 +222,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
-
-    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        salir();
-    }//GEN-LAST:event_formInternalFrameClosing
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated
         cargarCantante();
@@ -266,14 +269,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         tblCantante.setModel(modelo);
     }
 
-    private void salir() {
-        DefaultTableModel modeloCantante = (DefaultTableModel) tblCantante.getModel();
-        modeloCantante.setNumRows(0);
-        tblCantante.setModel(modeloCantante);
-        DefaultTableModel modeloCompositor = (DefaultTableModel) tblCompositor.getModel();
-        modeloCompositor.setNumRows(0);
-        tblCompositor.setModel(modeloCompositor);
-    }
+   
 
     private Cantante cargarCantanteSeleccionado() {
         int fila = tblCantante.getSelectedRow();

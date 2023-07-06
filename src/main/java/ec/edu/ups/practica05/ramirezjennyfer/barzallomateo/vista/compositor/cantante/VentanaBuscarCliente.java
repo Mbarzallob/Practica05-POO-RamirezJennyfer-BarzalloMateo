@@ -484,6 +484,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         btnCancelarSeleccion.setEnabled(false);
         btnBuscar.setEnabled(true);
         cbxDiscos.setEnabled(false);
+        cbxCliente.setEnabled(false);
     }//GEN-LAST:event_btnCancelarSeleccionActionPerformed
 
     private void cbxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxClienteActionPerformed

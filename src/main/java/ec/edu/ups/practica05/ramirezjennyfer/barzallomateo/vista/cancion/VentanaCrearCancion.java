@@ -6,6 +6,7 @@ package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCompositor;
+import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cancion;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Compositor;
 import javax.swing.JOptionPane;
@@ -315,6 +316,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
             int codigo = Integer.parseInt(txtCodigo.getText());
             Compositor compositor = controladorCompositor.buscarCompositor(codigo);
             if (compositor != null) {
+
                 txtApellido.setText(compositor.getApellido());
                 txtNombre.setText(compositor.getNombre());
                 txtNumComposicion.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
@@ -335,13 +337,19 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         Compositor compositor = controladorCompositor.buscarCompositor(codigo);
 
         if (validarCamposCancion()) {
+
             String titulo = txtTitulo.getText();
             int codigoCancion = Integer.parseInt(txtCodigoCancion.getText());
             String letra = txtLetra.getText();
             double duracion = Double.parseDouble(txtDuracion.getText());
-            controladorCompositor.agregarCancion(compositor, codigoCancion, titulo, letra, duracion);
-            JOptionPane.showMessageDialog(this, "La cancion " + titulo + " a sido ingresada exitosamente :)");
-            cerrarPantalla();
+            Cancion cancionValidacion = controladorCompositor.buscarCancion(compositor, codigoCancion);
+            if (cancionValidacion == null) {
+                controladorCompositor.agregarCancion(compositor, codigoCancion, titulo, letra, duracion);
+                JOptionPane.showMessageDialog(this, "La cancion " + titulo + " a sido ingresada exitosamente :)");
+                cerrarPantalla();
+            } else {
+                JOptionPane.showMessageDialog(this, "La cancion con el codigo " + codigoCancion + "  ya existe");
+            }
         } else {
             JOptionPane.showMessageDialog(this, "CAMPOS OBLIGATORIOS POR LLENAR");
         }
