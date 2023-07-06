@@ -111,11 +111,6 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
 
         txtCodigo.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtCodigo.setToolTipText("Ingrese el codigo del Compositor a buscar EJM (0202)");
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
 
         txtNombre.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombre.setToolTipText("Datos del Compositor");
@@ -304,10 +299,6 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         limpiarCampos();
     }//GEN-LAST:event_formInternalFrameClosing
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void limpiarCampos() {
         txtCodigo.setText("");

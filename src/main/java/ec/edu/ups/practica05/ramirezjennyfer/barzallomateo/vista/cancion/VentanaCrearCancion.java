@@ -4,10 +4,8 @@
  */
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion;
 
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCompositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cancion;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Compositor;
 import javax.swing.JOptionPane;
 
@@ -150,7 +148,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         txtLetra.setEnabled(false);
 
         btnRegistrarDisco.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnRegistrarDisco.setText("Registrar disco");
+        btnRegistrarDisco.setText("Registrar cancion");
         btnRegistrarDisco.setEnabled(false);
         btnRegistrarDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

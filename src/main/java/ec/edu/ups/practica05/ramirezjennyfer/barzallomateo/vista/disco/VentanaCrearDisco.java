@@ -116,11 +116,6 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
         txtNombreArtistico.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtNombreArtistico.setToolTipText("Datos del Cantante Seleccionado");
         txtNombreArtistico.setEnabled(false);
-        txtNombreArtistico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreArtisticoActionPerformed(evt);
-            }
-        });
 
         txtGeneroMusical.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         txtGeneroMusical.setToolTipText("Datos del Cantante Seleccionado");
@@ -423,10 +418,6 @@ public class VentanaCrearDisco extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
-
-    private void txtNombreArtisticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreArtisticoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreArtisticoActionPerformed
 
     private boolean validarCamposDisco() {
         if (txtNombreDisco.getText().isEmpty()

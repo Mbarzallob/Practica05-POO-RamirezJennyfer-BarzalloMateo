@@ -132,7 +132,7 @@ public class VentanaEliminarCancion extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
-        jLabel5.setText("Registrar Cancion");
+        jLabel5.setText("Eliminar Cancion");
 
         jLabel6.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel6.setText("Codigo");
@@ -180,7 +180,7 @@ public class VentanaEliminarCancion extends javax.swing.JInternalFrame {
 
         btnEliminarDisco.setBackground(new java.awt.Color(255, 204, 204));
         btnEliminarDisco.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
-        btnEliminarDisco.setText("Eliminar disco");
+        btnEliminarDisco.setText("Eliminar cancion");
         btnEliminarDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarDiscoActionPerformed(evt);

@@ -345,7 +345,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cookies and Cheese Bold" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrar disco"/>
+            <Property name="text" type="java.lang.String" value="Registrar cancion"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>

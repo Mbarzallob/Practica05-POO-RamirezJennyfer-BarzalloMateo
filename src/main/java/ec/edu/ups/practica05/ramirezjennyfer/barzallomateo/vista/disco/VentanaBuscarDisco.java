@@ -170,15 +170,6 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
 
         cbxDisco.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         cbxDisco.setEnabled(false);
-        cbxDisco.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                cbxDiscoPopupMenuWillBecomeVisible(evt);
-            }
-        });
         cbxDisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDiscoActionPerformed(evt);
@@ -387,21 +378,6 @@ public class VentanaBuscarDisco extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         cerrarPantalla();
     }//GEN-LAST:event_formInternalFrameClosing
-
-    private void cbxDiscoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbxDiscoPopupMenuWillBecomeVisible
-
-//        if ((cbxDisco.getItemCount() == 0)) {
-//
-//            cargarDatosCombo();
-//        } else {
-//
-//            if (cbxDisco.getSelectedItem() != null) {
-//                Disco disco = (Disco) cbxDisco.getSelectedItem();
-//                txtAnioLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
-//                txtNombreDisco.setText(disco.getNombre());
-//            }
-//        }
-    }//GEN-LAST:event_cbxDiscoPopupMenuWillBecomeVisible
 
     private void cerrarPantalla() {
         limpiarCamposCantante();

@@ -130,7 +130,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
-        jLabel5.setText("Registrar Cancion");
+        jLabel5.setText("Actualizar Cancion");
 
         jLabel6.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel6.setText("Codigo");

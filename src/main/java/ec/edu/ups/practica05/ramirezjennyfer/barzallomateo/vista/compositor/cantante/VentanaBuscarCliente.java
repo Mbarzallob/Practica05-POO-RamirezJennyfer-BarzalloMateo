@@ -5,9 +5,7 @@
 package ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.compositor.cantante;
 
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCantante;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.vista.cancion.*;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.controlador.ControladorCompositor;
-import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cancion;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Cantante;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Compositor;
 import ec.edu.ups.practica05.ramirezjennyfer.barzallomateo.modelo.Disco;
@@ -151,7 +149,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
-        jLabel5.setText("Buscar CLiente");
+        jLabel5.setText("Buscar Cliente");
 
         jLabel6.setFont(new java.awt.Font("Cookies and Cheese Bold", 1, 14)); // NOI18N
         jLabel6.setText("Codigo");

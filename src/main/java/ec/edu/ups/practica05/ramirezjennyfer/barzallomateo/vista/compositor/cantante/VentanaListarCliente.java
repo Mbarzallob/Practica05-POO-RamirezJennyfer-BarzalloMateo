@@ -45,6 +45,9 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tblCantante = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -125,6 +128,14 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel3.setText("Compositores");
+
+        jLabel4.setFont(new java.awt.Font("Stay Dreaming", 1, 36)); // NOI18N
+        jLabel4.setText("Clientes");
+
+        jLabel1.setText("(Seleccione un compositor para listar sus clientes)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -140,15 +151,28 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
                         .addComponent(btnSalir))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1075, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1075, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(452, 452, 452)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(399, 399, 399)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(btnSalir)
@@ -201,8 +225,7 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
             String numComposiciones = String.valueOf(compositor.getNumeroDeComposiciones());
             Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, numComposiciones};
             modelo.addRow(rowData);
-            
-            
+
         }
         tblCompositor.setModel(modelo);
     }
@@ -214,22 +237,26 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblCantante.getModel();
         modelo.setNumRows(0);
         List<Cantante> listaCantante = controladorCompositor.listarCantantes(compositor);
-        for (Cantante cantante : listaCantante) {
-            String codigo = String.valueOf(cantante.getCodigo());
-            String nombre = cantante.getNombre();
-            String apellido = cantante.getApellido();
-            String edad = String.valueOf(cantante.getEdad());
-            String nacionalidad = cantante.getNacionalidad();
-            String salario = String.valueOf(cantante.calcularSalario());
-            String nombreArtistico = cantante.getNombreArtistico();
-            String generoMusical = cantante.getGeneroMusical();
-            String numSencillos = String.valueOf(cantante.getNumeroDeSencillos());
-            String numConciertos = String.valueOf(cantante.getNumeroDeConciertos());
-            String numGiras = String.valueOf(cantante.getNumeroDeGiras());
-            Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, nombreArtistico, generoMusical, numSencillos, numConciertos, numGiras};
-            modelo.addRow(rowData);
+        if (!listaCantante.isEmpty()) {
+            for (Cantante cantante : listaCantante) {
+                String codigo = String.valueOf(cantante.getCodigo());
+                String nombre = cantante.getNombre();
+                String apellido = cantante.getApellido();
+                String edad = String.valueOf(cantante.getEdad());
+                String nacionalidad = cantante.getNacionalidad();
+                String salario = String.valueOf(cantante.calcularSalario());
+                String nombreArtistico = cantante.getNombreArtistico();
+                String generoMusical = cantante.getGeneroMusical();
+                String numSencillos = String.valueOf(cantante.getNumeroDeSencillos());
+                String numConciertos = String.valueOf(cantante.getNumeroDeConciertos());
+                String numGiras = String.valueOf(cantante.getNumeroDeGiras());
+                Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, nombreArtistico, generoMusical, numSencillos, numConciertos, numGiras};
+                modelo.addRow(rowData);
+            }
+            tblCantante.setModel(modelo);
+        }else{
+            JOptionPane.showMessageDialog(this, "El compositor no tiene cantantes");
         }
-        tblCantante.setModel(modelo);
     }
 
     private void salir() {
@@ -244,6 +271,9 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

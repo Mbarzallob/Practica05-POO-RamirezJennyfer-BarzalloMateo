@@ -300,7 +300,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Stay Dreaming" size="36" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrar Cancion"/>
+            <Property name="text" type="java.lang.String" value="Actualizar Cancion"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">

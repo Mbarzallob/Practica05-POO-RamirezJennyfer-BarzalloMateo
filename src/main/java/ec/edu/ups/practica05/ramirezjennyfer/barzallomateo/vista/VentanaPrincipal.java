@@ -149,8 +149,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemEliminarCliente = new javax.swing.JMenuItem();
         menuItemListarCliente = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        menuItemEspanol = new javax.swing.JMenuItem();
+        menuItemEnglish = new javax.swing.JMenuItem();
+        menuItemFrancais = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -423,15 +424,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
-        helpMenu.setText("Opciones");
+        helpMenu.setText("Idioma");
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        menuItemEspanol.setMnemonic('c');
+        menuItemEspanol.setText("Español");
+        menuItemEspanol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEspanolActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemEspanol);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        menuItemEnglish.setMnemonic('a');
+        menuItemEnglish.setText("English");
+        menuItemEnglish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEnglishActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemEnglish);
+
+        menuItemFrancais.setMnemonic('a');
+        menuItemFrancais.setText("Francais");
+        menuItemFrancais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemFrancaisActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemFrancais);
 
         menuBar.add(helpMenu);
 
@@ -652,6 +672,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaListarCliente.setVisible(true);
     }//GEN-LAST:event_menuItemListarClienteActionPerformed
 
+    private void menuItemEspanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspanolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEspanolActionPerformed
+
+    private void menuItemEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEnglishActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEnglishActionPerformed
+
+    private void menuItemFrancaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFrancaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemFrancaisActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -690,8 +722,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
@@ -719,6 +749,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemEliminarCliente;
     private javax.swing.JMenuItem menuItemEliminarCompositor;
     private javax.swing.JMenuItem menuItemEliminarDisco;
+    private javax.swing.JMenuItem menuItemEnglish;
+    private javax.swing.JMenuItem menuItemEspanol;
+    private javax.swing.JMenuItem menuItemFrancais;
     private javax.swing.JMenuItem menuItemIngresarCliente;
     private javax.swing.JMenuItem menuItemListarCancion;
     private javax.swing.JMenuItem menuItemListarCantante;
