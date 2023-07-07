@@ -104,7 +104,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }*/
 
-    //System.exit(0);
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,6 +151,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemEspanol = new javax.swing.JMenuItem();
         menuItemEnglish = new javax.swing.JMenuItem();
         menuItemFrancais = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        menuItemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -455,6 +456,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        jMenu4.setText("Opciones");
+
+        menuItemSalir.setText("Salir");
+        menuItemSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSalirActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menuItemSalir);
+
+        menuBar.add(jMenu4);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -666,7 +679,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void menuItemListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarClienteActionPerformed
        if (ventanaListarCliente == null) {
-            ventanaListarCliente = new VentanaListarCliente(controladorCantante, controladorCompositor);
+            ventanaListarCliente = new VentanaListarCliente(controladorCompositor);
             desktopPane.add(ventanaListarCliente);
         }
         ventanaListarCliente.setVisible(true);
@@ -683,6 +696,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void menuItemFrancaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFrancaisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuItemFrancaisActionPerformed
+
+    private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItemSalirActionPerformed
 
       
     /**
@@ -734,6 +751,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemActualizarCancion;
@@ -760,5 +778,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemListarDisco;
     private javax.swing.JMenuItem menuItemRegistrarCancion;
     private javax.swing.JMenuItem menuItemRegistrarCompositor;
+    private javax.swing.JMenuItem menuItemSalir;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
- /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
@@ -19,14 +19,12 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaListarCliente extends javax.swing.JInternalFrame {
 
     private ControladorCompositor controladorCompositor;
-    private ControladorCantante controladorCantante;
 
     /**
      * Creates new form VentanaCrearClientec
      */
-    public VentanaListarCliente(ControladorCantante controladorCantante, ControladorCompositor controladorCompositor) {
+    public VentanaListarCliente(ControladorCompositor controladorCompositor) {
         initComponents();
-        this.controladorCantante = controladorCantante;
         this.controladorCompositor = controladorCompositor;
     }
 
@@ -254,7 +252,7 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
                 modelo.addRow(rowData);
             }
             tblCantante.setModel(modelo);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "El compositor no tiene cantantes");
         }
     }
